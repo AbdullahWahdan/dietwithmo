@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" id="htmlRoot" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diet With Mo — Dr. Mohamed Khaled, Nutritionist</title>
-  <meta name="description" content="Transform your health with Dr. Mohamed Khaled — certified nutritionist & dietitian. Personalized nutrition plans, proven success stories, and expert guidance." />
-  <meta name="keywords" content="Diet With Mo, nutritionist, dietitian, Mohamed Khaled, weight loss, nutrition plan, healthy lifestyle" />
+  <meta name="description"
+    content="Transform your health with Dr. Mohamed Khaled — certified nutritionist &amp; dietitian. Personalized nutrition plans, proven success stories, and expert guidance." />
+  <meta name="keywords"
+    content="Diet With Mo, nutritionist, dietitian, Mohamed Khaled, weight loss, nutrition plan, healthy lifestyle" />
   <meta property="og:title" content="Diet With Mo — Dr. Mohamed Khaled" />
-  <meta property="og:description" content="Personalized nutrition plans by certified nutritionist Dr. Mohamed Khaled." />
+  <meta property="og:description"
+    content="Personalized nutrition plans by certified nutritionist Dr. Mohamed Khaled." />
   <link rel="icon" type="image/jpeg" href="431249367_824868302991522_2055455087122326823_n.jpg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <!-- ======== NAVBAR ======== -->
@@ -21,26 +26,62 @@
         <div class="nav-logo-text">Diet With <span>Mo</span></div>
       </a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#cv">Credentials</a></li>
-        <li><a href="#success">Success Stories</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact" class="nav-cta-btn">Book Now</a></li>
+        <li><a href="#about" data-en="About" data-ar="عن الدكتور">About</a></li>
+        <li><a href="#cv" data-en="Credentials" data-ar="المؤهلات">Credentials</a></li>
+        <li><a href="#success" data-en="Success Stories" data-ar="قصص النجاح">Success Stories</a></li>
+        <li><a href="#testimonials" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</a></li>
+        <li><a href="#contact" class="nav-cta-btn" data-en="Book Now" data-ar="احجز الآن">Book Now</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+
+      <!-- Controls: Language + Theme + Hamburger -->
+      <div class="nav-controls">
+        <!-- Language toggle -->
+        <button class="lang-toggle-btn" id="langToggle" aria-label="Switch language" title="Switch language">
+          <span class="lang-label">AR</span>
+          <span class="lang-divider">|</span>
+          <span class="lang-label">EN</span>
+        </button>
+
+        <!-- Theme toggle -->
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <span class="theme-icon theme-icon-dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" width="18" height="18">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </span>
+          <span class="theme-icon theme-icon-light">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" width="18" height="18">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </span>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- Mobile Nav Overlay -->
   <div class="mobile-nav" id="mobileNav">
     <button class="mobile-close" id="mobileClose" aria-label="Close menu">&#x2715;</button>
-    <a href="#about" class="mobile-link">About</a>
-    <a href="#cv" class="mobile-link">Credentials</a>
-    <a href="#success" class="mobile-link">Success Stories</a>
-    <a href="#testimonials" class="mobile-link">Testimonials</a>
-    <a href="#contact" class="mobile-link">Book Now</a>
+    <a href="#about" class="mobile-link" data-en="About" data-ar="عن الدكتور">About</a>
+    <a href="#cv" class="mobile-link" data-en="Credentials" data-ar="المؤهلات">Credentials</a>
+    <a href="#success" class="mobile-link" data-en="Success Stories" data-ar="قصص النجاح">Success Stories</a>
+    <a href="#testimonials" class="mobile-link" data-en="Testimonials" data-ar="آراء العملاء">Testimonials</a>
+    <a href="#contact" class="mobile-link" data-en="Book Now" data-ar="احجز الآن">Book Now</a>
   </div>
 
   <!-- ======== HERO ======== -->
@@ -51,23 +92,34 @@
       <div class="hero-inner">
         <!-- Left: Text -->
         <div class="hero-text">
-          <div class="hero-badge">✦ Certified Nutritionist &amp; Dietitian</div>
+          <div class="hero-badge">
+            <svg class="badge-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+            <span data-en="Certified Nutritionist &amp; Dietitian" data-ar="أخصائي تغذية معتمد">Certified Nutritionist
+              &amp; Dietitian</span>
+          </div>
           <h1 class="hero-title">
-            Your Journey to a<br />
-            <span class="highlight">Healthier You</span><br />
-            Starts Here
+            <span data-en="Your Journey to a" data-ar="رحلتك نحو">Your Journey to a</span><br />
+            <span class="highlight" data-en="Healthier You" data-ar="حياة أصحّ">Healthier You</span><br />
+            <span data-en="Starts Here" data-ar="تبدأ هنا">Starts Here</span>
           </h1>
-          <p class="hero-description">
-            Dr. Mohamed Khaled — Egypt's trusted nutrition expert — crafts personalized
-            diet plans that deliver real, lasting results. No crash diets. Just science-backed,
-            sustainable transformation.
+          <p class="hero-description"
+            data-en="Better Health and Proper Nutrition Are Not a Luxury — They Are the Shortest Path to a Stronger Life."
+            data-ar="التغذيه الصح مش رفاهيه .. دي أقصر طريق لحياه أقوى وصحه أفضل.">
+            Better Health and Proper Nutrition Are Not a Luxury — They Are the Shortest Path to a Stronger Life.
           </p>
           <div class="hero-btns">
-            <a href="#contact" class="yellow-btn" id="heroCtaBtn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="#contact" class="yellow-btn" id="heroCtaBtn" data-en="Start Your Journey" data-ar="ابدأ رحلتك">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
               Start Your Journey
             </a>
-            <a href="#success" class="outline-btn" id="heroStoriesBtn">
+            <a href="#success" class="outline-btn" id="heroStoriesBtn" data-en="View Success Stories"
+              data-ar="شاهد قصص النجاح">
               View Success Stories
             </a>
           </div>
@@ -75,16 +127,17 @@
           <!-- Stats Row -->
           <div class="hero-stats">
             <div class="stat-item">
-              <div class="stat-number">500+</div>
-              <div class="stat-label">Clients Transformed</div>
+              <div class="stat-number">1000+</div>
+              <div class="stat-label" data-en="Clients Transformed" data-ar="عميل حوّلنا حياتهم">Clients Transformed
+              </div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">8+</div>
-              <div class="stat-label">Years Experience</div>
+              <div class="stat-number">9+</div>
+              <div class="stat-label" data-en="Years Experience" data-ar="سنوات خبرة">Years Experience</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">98%</div>
-              <div class="stat-label">Client Satisfaction</div>
+              <div class="stat-number">17+</div>
+              <div class="stat-label" data-en="Countries Served" data-ar="دولة حول العالم">Countries Served</div>
             </div>
           </div>
         </div>
@@ -98,7 +151,8 @@
             </div>
             <div class="hero-float-badge">
               <span>Dr. Mohamed Khaled</span>
-              Nutrition &amp; Dietetics Specialist
+              <span data-en="Nutrition &amp; Dietetics Specialist" data-ar="أخصائي تغذية ودايتيتكس">Nutrition &amp;
+                Dietetics Specialist</span>
             </div>
           </div>
         </div>
@@ -120,145 +174,233 @@
         </div>
         <!-- Content -->
         <div class="about-content reveal">
-          <div class="about-label">Who is Dr. Mo?</div>
-          <h2 class="section-title">Meet <span>Dr. Mohamed</span><br />Khaled</h2>
-          <p>
-            Dr. Mohamed Khaled is a highly accomplished clinical nutritionist and dietitian
-            with over <strong>8 years of hands-on experience</strong> helping hundreds of clients
-            across Egypt achieve their health and wellness goals. He is the founder of
-            <strong>Diet With Mo</strong> — a nutrition brand built on one simple belief:
-            every body is different, and every plan should be too.
-          </p>
-          <p>
-            His approach blends cutting-edge nutritional science with deep empathy for his
-            clients' lifestyles, cultures, and food preferences — creating plans that are not
-            just effective, but actually enjoyable to follow. Whether your goal is weight loss,
-            muscle building, managing a chronic condition, or simply eating better, Dr. Mo has the
-            expertise and the passion to guide you there.
-          </p>
+          <div class="about-label" data-en="Who is Dr. Mo?" data-ar="من هو د/ محمد؟">Who is Dr. Mo?</div>
+          <h2 class="section-title">
+            <span data-en="About " data-ar="عن ">About </span><span><span data-en="Dr. Mohamed" data-ar="د/ محمد">Dr.
+                Mohamed</span></span><br />
+            <span data-en="Khaled" data-ar="خالد">Khaled</span>
+          </h2>
+          <ul class="about-list">
+            <li data-en="Clinical Nutrition Specialist, Sports Nutrition Specialist, and Weight Management Expert."
+              data-ar="أخصائي تغذية إكلينيكية ورياضية وخبير إدارة الوزن (سمنة ونحافة).">Clinical Nutrition Specialist,
+              Sports Nutrition Specialist, and Weight Management Expert.</li>
+            <li data-en="Graduate of the Faculty of Pharmacy, Ain Shams University (Excellent Grade)."
+              data-ar="خريج كلية الصيدلة، جامعة عين شمس (تقدير ممتاز)."><strong>Graduate of the Faculty of Pharmacy, Ain
+                Shams University</strong> (Excellent Grade).</li>
+            <li data-en="Former ranked tennis player at the national junior level."
+              data-ar="لاعب تنس سابق في المنتخب الوطني للناشئين (مصنف ضمن أفضل 8).">Former <strong>ranked tennis
+                player</strong> at the national junior level.</li>
+            <li data-en="Certified fitness and tennis coach accredited by the International Tennis Federation."
+              data-ar="مدرب لياقة وتنس معتمد من الاتحاد الدولي للتنس (ITF).">Certified <strong>fitness and tennis
+                coach</strong> accredited by the International Tennis Federation.</li>
+            <li data-en="Worked as a Clinical Nutrition Specialist in multiple hospitals."
+              data-ar="عمل كأخصائي تغذية إكلينيكية في عدة مستشفيات.">Worked as a <strong>Clinical Nutrition
+                Specialist</strong> in multiple hospitals.</li>
+            <li
+              data-en="Worked as a Sports Nutrition Specialist with Egyptian and international teams (Saudi Arabia and Oman)."
+              data-ar="عمل أخصائي تغذية رياضية مع منتخبات مصرية ودولية (السعودية وعُمان).">Worked as a <strong>Sports
+                Nutrition Specialist</strong> with Egyptian and international teams (Saudi Arabia and Oman).</li>
+            <li data-en="Currently serving as the Sports Nutrition Specialist for the Egyptian National Tennis Team."
+              data-ar="يشغل حالياً منصب أخصائي التغذية الرياضية للمنتخب المصري للتنس.">Currently serving as the
+              <strong>Sports Nutrition Specialist for the Egyptian National Tennis Team</strong>.
+            </li>
+            <li
+              data-en="Helped more than 1,000 online clients from 17+ countries over the past 9 years achieve their goals."
+              data-ar="ساعد أكثر من 1,000 عميل أونلاين من 17+ دولة خلال 9 سنوات على تحقيق أهدافهم.">Helped more than
+              <strong>1,000 online clients from 17+ countries</strong> over the past 9 years achieve their goals.
+            </li>
+          </ul>
           <div class="about-tags">
-            <span class="about-tag">🥦 Clinical Nutrition</span>
-            <span class="about-tag">⚖️ Weight Management</span>
-            <span class="about-tag">💪 Sports Nutrition</span>
-            <span class="about-tag">🩺 Therapeutic Diets</span>
-            <span class="about-tag">🧬 Metabolic Health</span>
-            <span class="about-tag">👶 Pediatric Nutrition</span>
+            <span class="about-tag">
+              <svg class="tag-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+              <span data-en="Clinical Nutrition" data-ar="تغذية إكلينيكية">Clinical Nutrition</span>
+            </span>
+            <span class="about-tag">
+              <svg class="tag-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+              <span data-en="Weight Management" data-ar="إدارة الوزن">Weight Management</span>
+            </span>
+            <span class="about-tag">
+              <svg class="tag-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              <span data-en="Sports Nutrition" data-ar="تغذية رياضية">Sports Nutrition</span>
+            </span>
+            <span class="about-tag">
+              <svg class="tag-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6" />
+                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+              </svg>
+              <span data-en="Tennis Federation Coach" data-ar="مدرب معتمد ITF">Tennis Federation Coach</span>
+            </span>
+            <span class="about-tag">
+              <svg class="tag-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+              <span data-en="17+ Countries" data-ar="17+ دولة">17+ Countries</span>
+            </span>
+            <span class="about-tag">
+              <svg class="tag-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+              </svg>
+              <span data-en="Hospital Specialist" data-ar="أخصائي مستشفيات">Hospital Specialist</span>
+            </span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== CV / CREDENTIALS ======== -->
+  <!-- ======== WHY CHOOSE ======== -->
   <section id="cv">
     <div class="container">
-      <div class="cv-header reveal">
-        <h2 class="section-title" style="color:#fff;">Education &amp; <span>Experience</span></h2>
-        <p class="section-subtitle">A track record built on science, dedication, and results.</p>
+      <div class="why-header reveal">
+        <div class="why-label" data-en="Your Best Decision" data-ar="أفضل قرار ستتخذه">Your Best Decision</div>
+        <h2 class="section-title" style="color:#fff;">
+          <span data-en="Why Choose " data-ar="ليه تختار ">Why Choose </span><span><span data-en="Dr. Mohamed Khaled?"
+              data-ar="د/ محمد خالد؟">Dr. Mohamed Khaled?</span></span>
+        </h2>
+        <p class="section-subtitle"
+          data-en="Everything you need for a real, lasting transformation — without deprivation."
+          data-ar="كل اللي محتاجه لتحول حقيقي ودائم — من غير حرمان.">Everything you need for a real, lasting
+          transformation — without deprivation.</p>
       </div>
 
-      <div class="cv-grid">
-        <!-- LEFT: Education & Experience -->
-        <div class="reveal">
-          <div class="cv-column-title">
-            🎓 Education &amp; Experience
-          </div>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-content">
-                <div class="timeline-year">2013 – 2017</div>
-                <div class="timeline-title">B.Sc. in Nutrition &amp; Food Science</div>
-                <div class="timeline-sub">Faculty of Agriculture — Cairo University<br />Graduated with Distinction</div>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-content">
-                <div class="timeline-year">2018 – 2020</div>
-                <div class="timeline-title">M.Sc. in Clinical Nutrition</div>
-                <div class="timeline-sub">Faculty of Medicine — Ain Shams University<br />Focused on metabolic disorders &amp; obesity management</div>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-content">
-                <div class="timeline-year">2018 – 2021</div>
-                <div class="timeline-title">Clinical Nutritionist — Al Salam International Hospital</div>
-                <div class="timeline-sub">Designed therapeutic nutrition plans for inpatients. Specialized in post-bariatric surgery nutrition care.</div>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line"></div>
-              </div>
-              <div class="timeline-content">
-                <div class="timeline-year">2021 – Present</div>
-                <div class="timeline-title">Founder &amp; Head Nutritionist — Diet With Mo</div>
-                <div class="timeline-sub">Private practice serving 500+ clients online & in-clinic. Specialist in weight loss, sports nutrition, and chronic disease management.</div>
-              </div>
-            </div>
+      <div class="why-grid">
+
+        <div class="why-card reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg></div>
+          <div class="why-card-body">
+            <div class="why-card-title" data-en="Personalized Just for You" data-ar="مخصص ليك أنت">Personalized Just for
+              You</div>
+            <p class="why-card-text"
+              data-en="A personalized nutrition plan designed specifically for your body and your goals."
+              data-ar="خطة غذائية مخصصة مصممة خصيصاً لجسمك وأهدافك.">A personalized nutrition plan designed specifically
+              for your body and your goals.</p>
           </div>
         </div>
 
-        <!-- RIGHT: Certifications -->
-        <div class="reveal">
-          <div class="cv-column-title">
-            🏅 Certifications &amp; Skills
-          </div>
-          <div class="cert-grid">
-            <div class="cert-card">
-              <div class="cert-icon">🏅</div>
-              <div class="cert-name">Registered Dietitian (RD)</div>
-              <div class="cert-org">Egyptian Syndicate of Dietitians</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon">🧠</div>
-              <div class="cert-name">Behavioral Nutrition Coaching</div>
-              <div class="cert-org">Precision Nutrition — PN1</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon">💪</div>
-              <div class="cert-name">Sports &amp; Exercise Nutrition</div>
-              <div class="cert-org">International Sports Sciences Assoc.</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon">🩺</div>
-              <div class="cert-name">Therapeutic Dietetics</div>
-              <div class="cert-org">Arab Nutrition Society</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon">🏥</div>
-              <div class="cert-name">Clinical Bariatric Nutrition</div>
-              <div class="cert-org">Egyptian Obesity Society</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon">🌿</div>
-              <div class="cert-name">Functional &amp; Integrative Nutrition</div>
-              <div class="cert-org">Institute for Integrative Nutrition</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon">👶</div>
-              <div class="cert-name">Pediatric Nutrition Specialist</div>
-              <div class="cert-org">ESPGHAN — European Society</div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon">📊</div>
-              <div class="cert-name">Diabetes &amp; Metabolic Care</div>
-              <div class="cert-org">Arab Diabetes Society</div>
-            </div>
+        <div class="why-card reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></div>
+          <div class="why-card-body">
+            <div class="why-card-title" data-en="Real Food, No Complexity" data-ar="أكل حقيقي، بدون تعقيد">Real Food, No
+              Complexity</div>
+            <p class="why-card-text"
+              data-en="No complicated systems. No food deprivation. Real home food with affordable cost."
+              data-ar="لا أنظمة معقدة. لا حرمان من الطعام. أكل بيتي حقيقي بتكلفة معقولة.">No complicated systems. No
+              food deprivation. Real home food with affordable cost.</p>
           </div>
         </div>
+
+        <div class="why-card reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10" />
+              <polyline points="1 20 1 14 7 14" />
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+            </svg></div>
+          <div class="why-card-body">
+            <div class="why-card-title" data-en="A Sustainable Lifestyle" data-ar="أسلوب حياة مستدام">A Sustainable
+              Lifestyle</div>
+            <p class="why-card-text" data-en="This is not a restrictive diet — it's a sustainable lifestyle."
+              data-ar="دي مش حمية مقيدة — دي أسلوب حياة مستدام.">This is not a restrictive diet — it's a sustainable
+              lifestyle.</p>
+          </div>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg></div>
+          <div class="why-card-body">
+            <div class="why-card-title" data-en="Total Body Improvement" data-ar="تحسين شامل للجسم">Total Body
+              Improvement</div>
+            <p class="why-card-text"
+              data-en="Improve body performance, energy levels, sleep quality, digestion, and daily focus."
+              data-ar="تحسين أداء الجسم، مستويات الطاقة، جودة النوم، الهضم، والتركيز اليومي.">Improve body performance,
+              energy levels, sleep quality, digestion, and daily focus.</p>
+          </div>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="5" x2="6" y2="19" />
+              <line x1="18" y1="5" x2="18" y2="19" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <line x1="6" y1="8" x2="10" y2="8" />
+              <line x1="6" y1="16" x2="10" y2="16" />
+              <line x1="14" y1="8" x2="18" y2="8" />
+              <line x1="14" y1="16" x2="18" y2="16" />
+            </svg></div>
+          <div class="why-card-body">
+            <div class="why-card-title" data-en="Peak Athletic Performance" data-ar="أداء رياضي على أعلى مستوى">Peak
+              Athletic Performance</div>
+            <p class="why-card-text" data-en="Better workout performance from the first minute to the last."
+              data-ar="أداء رياضي أفضل من الدقيقة الأولى للأخيرة.">Better workout performance from the first minute to
+              the last.</p>
+          </div>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              <line x1="6" y1="1" x2="6" y2="4" />
+              <line x1="10" y1="1" x2="10" y2="4" />
+              <line x1="14" y1="1" x2="14" y2="4" />
+            </svg></div>
+          <div class="why-card-body">
+            <div class="why-card-title" data-en="Flexible Food Options" data-ar="خيارات غذائية مرنة">Flexible Food
+              Options</div>
+            <p class="why-card-text" data-en="Multiple food options and practical solutions for busy days."
+              data-ar="خيارات غذائية متعددة وحلول عملية لأيام الانشغال.">Multiple food options and practical solutions
+              for busy days.</p>
+          </div>
+        </div>
+
+        <div class="why-card why-card--wide reveal">
+          <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg></div>
+          <div class="why-card-body">
+            <div class="why-card-title" data-en="Continuous Follow-Up" data-ar="متابعة مستمرة">Continuous Follow-Up
+            </div>
+            <p class="why-card-text" data-en="Continuous follow-up and plan adjustments based on your progress."
+              data-ar="متابعة مستمرة وتعديل الخطة بناءً على تقدمك.">Continuous follow-up and plan adjustments based on
+              your progress.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -267,94 +409,173 @@
   <section id="success">
     <div class="container">
       <div class="success-header reveal">
-        <h2 class="section-title">Real People. <span>Real Results.</span></h2>
-        <p class="section-subtitle">Hundreds of clients have transformed their lives with Dr. Mo's guidance. Here are just a few of their stories.</p>
+        <h2 class="section-title"><span data-en="Real People. " data-ar="أناس حقيقيون. ">Real People. </span><span><span
+              data-en="Real Results." data-ar="نتائج حقيقية.">Real Results.</span></span></h2>
+        <p class="section-subtitle"
+          data-en="Real clients. Real transformations. Each journey is unique — yours can be next."
+          data-ar="عملاء حقيقيون. تحولات حقيقية. كل رحلة فريدة — رحلتك يمكن أن تكون التالية.">Real clients. Real
+          transformations. Each journey is unique — yours can be next.</p>
       </div>
 
-      <div class="stories-grid">
-
-        <!-- Story 1 -->
-        <div class="story-card reveal">
-          <div class="story-img-wrap">
-            <img src="images/success1.png" alt="Sara's transformation — before and after weight loss" loading="lazy" />
-            <div class="story-overlay">
-              <div class="story-overlay-text">Before &amp; After — 5 months with Dr. Mo</div>
+      <!-- Carousel -->
+      <div class="carousel-outer reveal">
+        <div class="carousel-track-wrap">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap"><img src="images/success/0.jpeg" alt="Client transformation 1"
+                  loading="lazy" /></div>
+              <div class="carousel-caption">
+                <div class="carousel-result"><svg class="result-ico" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg><span data-en="Body Recomposition" data-ar="إعادة تشكيل الجسم">Body Recomposition</span></div>
+                <div class="carousel-name" data-en="Client 1 — With Dr. Mo" data-ar="عميل 1 — مع د/ محمد">Client 1 —
+                  With Dr. Mo</div>
+              </div>
             </div>
-          </div>
-          <div class="story-body">
-            <div class="story-name">Sara M., 32</div>
-            <div class="story-result">🔥 Lost 24 kg</div>
-            <p class="story-desc">
-              "I had tried every diet out there and failed every time. Dr. Mo created a plan that actually
-              fit my lifestyle. I never felt deprived — I just felt better, little by little, every single week."
-            </p>
-            <div class="story-duration">⏱ 5 months program</div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap"><img src="images/success/1.jpeg" alt="Client transformation 2"
+                  loading="lazy" /></div>
+              <div class="carousel-caption">
+                <div class="carousel-result"><svg class="result-ico" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg><span data-en="Weight Loss Journey" data-ar="رحلة فقدان الوزن">Weight Loss Journey</span></div>
+                <div class="carousel-name" data-en="Client 2 — With Dr. Mo" data-ar="عميل 2 — مع د/ محمد">Client 2 —
+                  With Dr. Mo</div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap"><img src="images/success/2.jpeg" alt="Client transformation 3"
+                  loading="lazy" /></div>
+              <div class="carousel-caption">
+                <div class="carousel-result"><svg class="result-ico" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg><span data-en="Amazing Transformation" data-ar="تحول رائع">Amazing Transformation</span></div>
+                <div class="carousel-name" data-en="Client 3 — With Dr. Mo" data-ar="عميل 3 — مع د/ محمد">Client 3 —
+                  With Dr. Mo</div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap"><img src="images/success/3.jpeg" alt="Client transformation 4"
+                  loading="lazy" /></div>
+              <div class="carousel-caption">
+                <div class="carousel-result"><svg class="result-ico" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg><span data-en="Incredible Results" data-ar="نتائج مذهلة">Incredible Results</span></div>
+                <div class="carousel-name" data-en="Client 4 — With Dr. Mo" data-ar="عميل 4 — مع د/ محمد">Client 4 —
+                  With Dr. Mo</div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap"><img src="images/success/4.jpeg" alt="Client transformation 5"
+                  loading="lazy" /></div>
+              <div class="carousel-caption">
+                <div class="carousel-result"><svg class="result-ico" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg><span data-en="Life-Changing Program" data-ar="برنامج غيّر الحياة">Life-Changing Program</span>
+                </div>
+                <div class="carousel-name" data-en="Client 5 — With Dr. Mo" data-ar="عميل 5 — مع د/ محمد">Client 5 —
+                  With Dr. Mo</div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap"><img src="images/success/5.jpeg" alt="Client transformation 6"
+                  loading="lazy" /></div>
+              <div class="carousel-caption">
+                <div class="carousel-result"><svg class="result-ico" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg><span data-en="Sustained Results" data-ar="فقدان وزن مستدام">Sustained Results</span></div>
+                <div class="carousel-name" data-en="Client 6 — With Dr. Mo" data-ar="عميل 6 — مع د/ محمد">Client 6 —
+                  With Dr. Mo</div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap"><img src="images/success/6.jpeg" alt="Client transformation 7"
+                  loading="lazy" /></div>
+              <div class="carousel-caption">
+                <div class="carousel-result"><svg class="result-ico" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg><span data-en="Full Transformation" data-ar="تحول جسدي كامل">Full Transformation</span></div>
+                <div class="carousel-name" data-en="Client 7 — With Dr. Mo" data-ar="عميل 7 — مع د/ محمد">Client 7 —
+                  With Dr. Mo</div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="carousel-img-wrap"><img src="images/success/7.jpeg" alt="Client transformation 8"
+                  loading="lazy" /></div>
+              <div class="carousel-caption">
+                <div class="carousel-result"><svg class="result-ico" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                    <polyline points="17 6 23 6 23 12" />
+                  </svg><span data-en="Goal Achieved" data-ar="تحقيق الهدف">Goal Achieved</span></div>
+                <div class="carousel-name" data-en="Client 8 — With Dr. Mo" data-ar="عميل 8 — مع د/ محمد">Client 8 —
+                  With Dr. Mo</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Story 2 -->
-        <div class="story-card reveal">
-          <div class="story-img-wrap">
-            <img src="images/success2.png" alt="Ahmed's transformation — before and after weight loss" loading="lazy" />
-            <div class="story-overlay">
-              <div class="story-overlay-text">Before &amp; After — 7 months with Dr. Mo</div>
-            </div>
-          </div>
-          <div class="story-body">
-            <div class="story-name">Ahmed K., 45</div>
-            <div class="story-result">🔥 Lost 31 kg</div>
-            <p class="story-desc">
-              "At 45 with Type 2 diabetes, I thought transformation was impossible. Dr. Mo proved me wrong.
-              My blood sugar is now fully controlled and I've dropped 31 kg without giving up food I love."
-            </p>
-            <div class="story-duration">⏱ 7 months program</div>
-          </div>
-        </div>
+        <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Previous story">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Next story">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
 
-        <!-- Story 3 -->
-        <div class="story-card reveal">
-          <div class="story-img-wrap">
-            <img src="images/success3.png" alt="Nour's transformation — before and after" loading="lazy" />
-            <div class="story-overlay">
-              <div class="story-overlay-text">Before &amp; After — 4 months with Dr. Mo</div>
-            </div>
-          </div>
-          <div class="story-body">
-            <div class="story-name">Nour A., 27</div>
-            <div class="story-result">🔥 Lost 18 kg</div>
-            <p class="story-desc">
-              "Post-pregnancy weight was crushing my confidence. Dr. Mo designed a plan that was safe for
-              breastfeeding and incredibly effective. I feel like myself again — actually, better than ever."
-            </p>
-            <div class="story-duration">⏱ 4 months program</div>
-          </div>
-        </div>
-
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-counter"><span id="carouselCurrent">1</span> / <span id="carouselTotal">8</span></div>
       </div>
+
     </div>
   </section>
+
 
   <!-- ======== TESTIMONIALS ======== -->
   <section id="testimonials">
     <div class="container">
       <div class="testimonials-header reveal">
-        <h2 class="section-title" style="color:#fff;">What My <span>Clients Say</span></h2>
-        <p class="section-subtitle">Honest words from people who lived the transformation.</p>
+        <h2 class="section-title" style="color:#fff;"><span data-en="What My " data-ar="ماذا يقول ">What My
+          </span><span><span data-en="Clients Say" data-ar="عملائي">Clients Say</span></span></h2>
+        <p class="section-subtitle" data-en="Honest words from people who lived the transformation."
+          data-ar="كلمات صادقة من أناس عاشوا التحول.">Honest words from people who lived the transformation.</p>
       </div>
 
       <div class="testimonials-grid">
         <div class="testimonial-card reveal">
           <div class="quote-icon">"</div>
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
+          <p class="testimonial-text"
+            data-en="Dr. Mo isn't just a nutritionist — he's a life coach. He understood my emotional relationship with food and helped me heal it while achieving my goals. Best investment I've ever made in myself."
+            data-ar="د/ محمد مش بس أخصائي تغذية — هو كوتش حياة. فهم علاقتي العاطفية بالأكل وساعدني أعالجها وفي نفس الوقت أحقق أهدافي. أفضل استثمار في نفسي.">
             Dr. Mo isn't just a nutritionist — he's a life coach. He understood my emotional relationship
             with food and helped me heal it while achieving my goals. Best investment I've ever made in myself.
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">L</div>
             <div>
-              <div class="author-name">Layla H.</div>
-              <div class="author-result">Lost 20 kg in 5 months</div>
+              <div class="author-name" data-en="Layla H." data-ar="ليلى ح.">Layla H.</div>
+              <div class="author-result" data-en="Lost 20 kg in 5 months" data-ar="خسرت 20 كيلو في 5 أشهر">Lost 20 kg in
+                5 months</div>
             </div>
           </div>
         </div>
@@ -362,15 +583,18 @@
         <div class="testimonial-card reveal">
           <div class="quote-icon">"</div>
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
+          <p class="testimonial-text"
+            data-en="What sets Dr. Mo apart is the follow-up. He checks in consistently, adjusts the plan when needed, and genuinely celebrates every milestone with you. I never felt alone in the process."
+            data-ar="اللي يميز د/ محمد هو المتابعة. يتابع بانتظام، يعدّل الخطة عند الحاجة، ويحتفل معك بكل إنجاز. ما حسيتش أني وحيد في الرحلة.">
             What sets Dr. Mo apart is the follow-up. He checks in consistently, adjusts the plan when
             needed, and genuinely celebrates every milestone with you. I never felt alone in the process.
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">O</div>
             <div>
-              <div class="author-name">Omar S.</div>
-              <div class="author-result">Lost 15 kg, improved energy</div>
+              <div class="author-name" data-en="Omar S." data-ar="عمر س.">Omar S.</div>
+              <div class="author-result" data-en="Lost 15 kg, improved energy" data-ar="خسر 15 كيلو وتحسنت طاقته">Lost
+                15 kg, improved energy</div>
             </div>
           </div>
         </div>
@@ -378,15 +602,18 @@
         <div class="testimonial-card reveal">
           <div class="quote-icon">"</div>
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
+          <p class="testimonial-text"
+            data-en="I came to Dr. Mo with a hormonal imbalance and polycystic ovary syndrome. He created a targeted nutrition plan that helped regulate my hormones naturally. My doctor is amazed at my progress."
+            data-ar="جيت لد/ محمد بخلل هرموني ومتلازمة المبيض المتعدد الكيسات. صمم خطة غذائية مستهدفة ساعدت على تنظيم هرموناتي بشكل طبيعي. دكتوري انبهر بتقدمي.">
             I came to Dr. Mo with a hormonal imbalance and polycystic ovary syndrome. He created a targeted
             nutrition plan that helped regulate my hormones naturally. My doctor is amazed at my progress.
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">R</div>
             <div>
-              <div class="author-name">Rana M.</div>
-              <div class="author-result">PCOS management success</div>
+              <div class="author-name" data-en="Rana M." data-ar="رنا م.">Rana M.</div>
+              <div class="author-result" data-en="PCOS management success" data-ar="تحكم ناجح في متلازمة المبيض">PCOS
+                management success</div>
             </div>
           </div>
         </div>
@@ -394,15 +621,18 @@
         <div class="testimonial-card reveal">
           <div class="quote-icon">"</div>
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
+          <p class="testimonial-text"
+            data-en="As an athlete, I needed someone who understood performance nutrition. Dr. Mo built a plan that boosted my endurance, helped me cut fat without losing muscle, and improved my recovery time."
+            data-ar="كرياضي، احتجت حد يفهم تغذية الأداء. د/ محمد بنى خطة رفعت تحملي، ساعدتني أخسر دهون من غير ما أخسر عضل، وحسّنت وقت تعافيي.">
             As an athlete, I needed someone who understood performance nutrition. Dr. Mo built a plan that
             boosted my endurance, helped me cut fat without losing muscle, and improved my recovery time.
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">K</div>
             <div>
-              <div class="author-name">Karim T.</div>
-              <div class="author-result">Performance nutrition athlete</div>
+              <div class="author-name" data-en="Karim T." data-ar="كريم ت.">Karim T.</div>
+              <div class="author-result" data-en="Performance nutrition athlete" data-ar="رياضي تغذية الأداء">
+                Performance nutrition athlete</div>
             </div>
           </div>
         </div>
@@ -410,15 +640,18 @@
         <div class="testimonial-card reveal">
           <div class="quote-icon">"</div>
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
+          <p class="testimonial-text"
+            data-en="My whole family follows Dr. Mo's guidance now. He adapted each plan to our different needs — my husband's weight goals, my son's teenage nutrition, and my own health requirements. Incredible."
+            data-ar="عيلتي كلها بقت تتبع توجيهات د/ محمد. كيّف كل خطة لاحتياجاتنا المختلفة — أهداف زوجي للوزن، تغذية ابني المراهق، ومتطلبات صحتي. مذهل.">
             My whole family follows Dr. Mo's guidance now. He adapted each plan to our different needs —
             my husband's weight goals, my son's teenage nutrition, and my own health requirements. Incredible.
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">D</div>
             <div>
-              <div class="author-name">Diana F.</div>
-              <div class="author-result">Whole family program</div>
+              <div class="author-name" data-en="Diana F." data-ar="ديانا ف.">Diana F.</div>
+              <div class="author-result" data-en="Whole family program" data-ar="برنامج للعائلة كاملة">Whole family
+                program</div>
             </div>
           </div>
         </div>
@@ -426,15 +659,18 @@
         <div class="testimonial-card reveal">
           <div class="quote-icon">"</div>
           <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
+          <p class="testimonial-text"
+            data-en="Six months ago I was pre-diabetic and overweight. Today I am 27 kg lighter, my HbA1c is completely normal, and I feel 15 years younger. Dr. Mo changed the trajectory of my life."
+            data-ar="قبل ستة أشهر كنت مهدداً بالسكر وعندي وزن زيادة. اليوم وزني أقل بـ 27 كيلو، HbA1c طبيعي تماماً، وأحس بـ 15 سنة أصغر. د/ محمد غيّر مسار حياتي.">
             Six months ago I was pre-diabetic and overweight. Today I am 27 kg lighter, my HbA1c is
             completely normal, and I feel 15 years younger. Dr. Mo changed the trajectory of my life.
           </p>
           <div class="testimonial-author">
             <div class="author-avatar">H</div>
             <div>
-              <div class="author-name">Hany A.</div>
-              <div class="author-result">Pre-diabetes reversed</div>
+              <div class="author-name" data-en="Hany A." data-ar="هاني أ.">Hany A.</div>
+              <div class="author-result" data-en="Pre-diabetes reversed" data-ar="تحسن مستوى السكر">Pre-diabetes
+                reversed</div>
             </div>
           </div>
         </div>
@@ -446,35 +682,44 @@
   <section id="contact">
     <div class="container">
       <div class="contact-inner reveal">
-        <h2 class="section-title">Ready to <span style="color:var(--dark-2);">Transform</span><br />Your Life?</h2>
-        <p>
+        <h2 class="section-title">
+          <span data-en="Ready to " data-ar="مستعد لـ">Ready to </span><span style="color:var(--dark-2);"><span
+              data-en="Transform" data-ar="تغيير">Transform</span></span><br />
+          <span data-en="Your Life?" data-ar="حياتك؟">Your Life?</span>
+        </h2>
+        <p data-en="Reach out to Dr. Mohamed Khaled today on Facebook or Instagram to book your first consultation and get a personalized nutrition plan built just for you."
+          data-ar="تواصل مع د/ محمد خالد اليوم على فيسبوك أو إنستجرام لحجز أول استشارة والحصول على خطة غذائية مخصصة لك.">
           Reach out to Dr. Mohamed Khaled today on Facebook or Instagram to book your first
           consultation and get a personalized nutrition plan built just for you.
         </p>
         <div class="social-links">
           <!-- Facebook -->
-          <a href="https://web.facebook.com/Mohamed.Khaled.Nutritionist"
-             target="_blank" rel="noopener noreferrer"
-             class="social-btn social-btn-fb" id="facebookBtn">
+          <a href="https://web.facebook.com/Mohamed.Khaled.Nutritionist" target="_blank" rel="noopener noreferrer"
+            class="social-btn social-btn-fb" id="facebookBtn" data-en="Follow on Facebook" data-ar="تابعنا على فيسبوك">
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
             </svg>
             Follow on Facebook
           </a>
           <!-- Instagram -->
-          <a href="https://www.instagram.com/dietwithmo/"
-             target="_blank" rel="noopener noreferrer"
-             class="social-btn social-btn-ig" id="instagramBtn">
+          <a href="https://www.instagram.com/dietwithmo/" target="_blank" rel="noopener noreferrer"
+            class="social-btn social-btn-ig" id="instagramBtn" data-en="Follow on Instagram"
+            data-ar="تابعنا على إنستجرام">
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
             </svg>
             Follow on Instagram
           </a>
         </div>
         <p class="contact-note">
-          You can also message directly via
-          <a href="https://web.facebook.com/Mohamed.Khaled.Nutritionist" target="_blank" rel="noopener noreferrer">Facebook Messenger</a>.
-          Dr. Mo responds within 24 hours.
+          <span data-en="You can also message directly via" data-ar="يمكنك أيضاً المراسلة مباشرة عبر">You can also
+            message directly via</span>
+          <a href="https://web.facebook.com/Mohamed.Khaled.Nutritionist" target="_blank" rel="noopener noreferrer"
+            data-en="Facebook Messenger" data-ar="فيسبوك ماسنجر">Facebook Messenger</a>.
+          <span data-en="Dr. Mo responds within 24 hours." data-ar="د/ محمد يرد خلال 24 ساعة.">Dr. Mo responds within 24
+            hours.</span>
         </p>
       </div>
     </div>
@@ -486,12 +731,17 @@
       <div class="footer-logo">Diet With <span>Mo</span></div>
       <div class="footer-divider"></div>
       <p class="footer-text">
-        &copy; 2024 Dr. Mohamed Khaled — Diet With Mo. All rights reserved.<br />
-        Empowering healthier lives through science-based nutrition.
+        <span data-en="© 2024 Dr. Mohamed Khaled — Diet With Mo. All rights reserved."
+          data-ar="© 2024 د/ محمد خالد — دايت ويذ مو. جميع الحقوق محفوظة.">© 2024 Dr. Mohamed Khaled — Diet With Mo. All
+          rights reserved.</span><br />
+        <span data-en="Empowering healthier lives through science-based nutrition."
+          data-ar="نمكّن حياة أصحّ من خلال التغذية المبنية على العلم.">Empowering healthier lives through science-based
+          nutrition.</span>
       </p>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>

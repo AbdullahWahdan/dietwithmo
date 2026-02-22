@@ -1,9 +1,66 @@
 /* =============================================
    DIET WITH MO — script.js
-   Interactivity: Navbar, Scroll Reveal, Mobile Nav
+   Interactivity: Navbar, Scroll Reveal, Mobile Nav,
+   Theme Toggle, Language Toggle
    ============================================= */
 
 'use strict';
+
+// ─── Theme Toggle ──────────────────────────────────────────────────────────
+const htmlRoot = document.getElementById('htmlRoot');
+const themeToggle = document.getElementById('themeToggle');
+
+function applyTheme(theme) {
+  htmlRoot.setAttribute('data-theme', theme);
+  localStorage.setItem('dwm-theme', theme);
+}
+
+// Restore saved theme immediately (no flash)
+const savedTheme = localStorage.getItem('dwm-theme') || 'dark';
+applyTheme(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = htmlRoot.getAttribute('data-theme');
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+// ─── Language Toggle ───────────────────────────────────────────────────────
+const langToggle = document.getElementById('langToggle');
+
+function applyLanguage(lang) {
+  const isAr = lang === 'ar';
+  htmlRoot.setAttribute('lang', isAr ? 'ar' : 'en');
+  htmlRoot.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+  localStorage.setItem('dwm-lang', lang);
+
+  // Swap all data-en / data-ar elements
+  document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+    const text = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+    // For elements that are just text containers (not links with icons), set innerHTML
+    // For buttons/links that might have SVG children, use textContent on the right node
+    if (el.children.length === 0) {
+      el.textContent = text;
+    } else if (el.tagName === 'A' && el.querySelector('svg')) {
+      // Link with icon — update last text node only
+      const nodes = [...el.childNodes].filter(n => n.nodeType === Node.TEXT_NODE);
+      if (nodes.length) nodes[nodes.length - 1].textContent = ' ' + text;
+    } else {
+      el.innerHTML = text;
+    }
+  });
+
+  // Update lang toggle button title
+  langToggle.title = isAr ? 'Switch to English' : 'التبديل إلى العربية';
+}
+
+// Restore saved language
+const savedLang = localStorage.getItem('dwm-lang') || 'en';
+applyLanguage(savedLang);
+
+langToggle.addEventListener('click', () => {
+  const current = localStorage.getItem('dwm-lang') || 'en';
+  applyLanguage(current === 'en' ? 'ar' : 'en');
+});
 
 // ─── Navbar scroll effect ───────────────────────────────────────────────────
 const navbar = document.getElementById('navbar');
@@ -17,8 +74,8 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ─── Mobile hamburger menu ──────────────────────────────────────────────────
-const hamburger  = document.getElementById('hamburger');
-const mobileNav  = document.getElementById('mobileNav');
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
 const mobileClose = document.getElementById('mobileClose');
 const mobileLinks = document.querySelectorAll('.mobile-link');
 
@@ -135,7 +192,7 @@ if (statsSection) {
       document.querySelectorAll('.stat-number').forEach(el => {
         const text = el.textContent.trim();
         const suffix = text.replace(/[0-9]/g, '');
-        const num    = parseInt(text.replace(/[^0-9]/g, ''));
+        const num = parseInt(text.replace(/[^0-9]/g, ''));
         if (!isNaN(num)) animateCounter(el, num, suffix);
       });
     }
@@ -145,7 +202,7 @@ if (statsSection) {
 
 // ─── Active nav link highlight on scroll ───────────────────────────────────
 const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-links a');
+const navLinks = document.querySelectorAll('.nav-links a');
 
 window.addEventListener('scroll', () => {
   let current = '';
@@ -159,3 +216,79 @@ window.addEventListener('scroll', () => {
       : '';
   });
 }, { passive: true });
+
+// ─── Success Stories Carousel (3 visible, scroll 1 at a time) ──────────────
+(function initCarousel() {
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const dotsWrap = document.getElementById('carouselDots');
+  const curEl = document.getElementById('carouselCurrent');
+  const totEl = document.getElementById('carouselTotal');
+
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const slides = track.querySelectorAll('.carousel-slide');
+  const total = slides.length;          // 8
+  const VISIBLE = 3;
+  const maxStep = total - VISIBLE;        // 5  (positions 0-5)
+  let current = 0;
+  let autoTimer;
+
+  if (totEl) totEl.textContent = total;
+
+  // Build one dot per navigable position
+  for (let i = 0; i <= maxStep; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'View slide ' + (i + 1));
+    dot.addEventListener('click', () => { resetAuto(); goTo(i); });
+    dotsWrap.appendChild(dot);
+  }
+
+  function updateUI() {
+    // Measure the actual slide width + gap in pixels (works with flex gap)
+    const slideW = slides[0].offsetWidth;
+    const gap = parseInt(getComputedStyle(track).gap) || 24;
+    track.style.transform = `translateX(-${current * (slideW + gap)}px)`;
+    if (curEl) curEl.textContent = current + 1;
+    dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === current)
+    );
+  }
+
+  function goTo(index) {
+    if (index < 0) index = maxStep;
+    if (index > maxStep) index = 0;
+    current = index;
+    updateUI();
+  }
+
+  prevBtn.addEventListener('click', () => { resetAuto(); goTo(current - 1); });
+  nextBtn.addEventListener('click', () => { resetAuto(); goTo(current + 1); });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { resetAuto(); goTo(current - 1); }
+    if (e.key === 'ArrowRight') { resetAuto(); goTo(current + 1); }
+  });
+
+  let touchStartX = 0;
+  track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) { resetAuto(); goTo(current + (dx < 0 ? 1 : -1)); }
+  });
+
+  function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 4500); }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+  const outer = document.querySelector('.carousel-outer');
+  if (outer) {
+    outer.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    outer.addEventListener('mouseleave', startAuto);
+  }
+
+  updateUI();
+  startAuto();
+})();
+
