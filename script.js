@@ -1,31 +1,19 @@
 /* =============================================
    DIET WITH MO — script.js
    Interactivity: Navbar, Scroll Reveal, Mobile Nav,
-   Theme Toggle, Language Toggle
+   Language Toggle
    ============================================= */
 
 'use strict';
 
-// ─── Theme Toggle ──────────────────────────────────────────────────────────
+// ─── Lock site in dark mode permanently ────────────────────────────────────
 const htmlRoot = document.getElementById('htmlRoot');
-const themeToggle = document.getElementById('themeToggle');
-
-function applyTheme(theme) {
-  htmlRoot.setAttribute('data-theme', theme);
-  localStorage.setItem('dwm-theme', theme);
-}
-
-// Restore saved theme immediately (no flash)
-const savedTheme = localStorage.getItem('dwm-theme') || 'dark';
-applyTheme(savedTheme);
-
-themeToggle.addEventListener('click', () => {
-  const current = htmlRoot.getAttribute('data-theme');
-  applyTheme(current === 'dark' ? 'light' : 'dark');
-});
+htmlRoot.setAttribute('data-theme', 'dark');
 
 // ─── Language Toggle ───────────────────────────────────────────────────────
 const langToggle = document.getElementById('langToggle');
+const flagEn = langToggle ? langToggle.querySelector('.lang-flag--en') : null;
+const flagAr = langToggle ? langToggle.querySelector('.lang-flag--ar') : null;
 
 function applyLanguage(lang) {
   const isAr = lang === 'ar';
@@ -36,12 +24,9 @@ function applyLanguage(lang) {
   // Swap all data-en / data-ar elements
   document.querySelectorAll('[data-en][data-ar]').forEach(el => {
     const text = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
-    // For elements that are just text containers (not links with icons), set innerHTML
-    // For buttons/links that might have SVG children, use textContent on the right node
     if (el.children.length === 0) {
       el.textContent = text;
     } else if (el.tagName === 'A' && el.querySelector('svg')) {
-      // Link with icon — update last text node only
       const nodes = [...el.childNodes].filter(n => n.nodeType === Node.TEXT_NODE);
       if (nodes.length) nodes[nodes.length - 1].textContent = ' ' + text;
     } else {
@@ -49,15 +34,21 @@ function applyLanguage(lang) {
     }
   });
 
-  // Update lang toggle button title
-  langToggle.title = isAr ? 'Switch to English' : 'التبديل إلى العربية';
+  // Highlight the active flag
+  if (flagEn && flagAr) {
+    flagEn.classList.toggle('lang-flag--active', !isAr);
+    flagAr.classList.toggle('lang-flag--active', isAr);
+  }
+
+  // Update button title
+  if (langToggle) langToggle.title = isAr ? 'Switch to English' : 'التبديل إلى العربية';
 }
 
 // Restore saved language
 const savedLang = localStorage.getItem('dwm-lang') || 'en';
 applyLanguage(savedLang);
 
-langToggle.addEventListener('click', () => {
+langToggle && langToggle.addEventListener('click', () => {
   const current = localStorage.getItem('dwm-lang') || 'en';
   applyLanguage(current === 'en' ? 'ar' : 'en');
 });
@@ -246,11 +237,17 @@ window.addEventListener('scroll', () => {
     dotsWrap.appendChild(dot);
   }
 
+  function isRtl() {
+    return document.documentElement.getAttribute('dir') === 'rtl';
+  }
+
   function updateUI() {
     // Measure the actual slide width + gap in pixels (works with flex gap)
     const slideW = slides[0].offsetWidth;
     const gap = parseInt(getComputedStyle(track).gap) || 24;
-    track.style.transform = `translateX(-${current * (slideW + gap)}px)`;
+    // In RTL flex, items flow right→left so we need a positive offset to scroll forward
+    const offset = current * (slideW + gap);
+    track.style.transform = `translateX(${isRtl() ? offset : -offset}px)`;
     if (curEl) curEl.textContent = current + 1;
     dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) =>
       d.classList.toggle('active', i === current)
@@ -264,12 +261,13 @@ window.addEventListener('scroll', () => {
     updateUI();
   }
 
-  prevBtn.addEventListener('click', () => { resetAuto(); goTo(current - 1); });
-  nextBtn.addEventListener('click', () => { resetAuto(); goTo(current + 1); });
+  // In RTL the buttons swap sides visually (via CSS), so swap their step direction too
+  prevBtn.addEventListener('click', () => { resetAuto(); goTo(isRtl() ? current + 1 : current - 1); });
+  nextBtn.addEventListener('click', () => { resetAuto(); goTo(isRtl() ? current - 1 : current + 1); });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') { resetAuto(); goTo(current - 1); }
-    if (e.key === 'ArrowRight') { resetAuto(); goTo(current + 1); }
+    if (e.key === 'ArrowLeft') { resetAuto(); goTo(isRtl() ? current + 1 : current - 1); }
+    if (e.key === 'ArrowRight') { resetAuto(); goTo(isRtl() ? current - 1 : current + 1); }
   });
 
   let touchStartX = 0;
@@ -291,4 +289,43 @@ window.addEventListener('scroll', () => {
   updateUI();
   startAuto();
 })();
+
+// ─── Hall of Fame Tab Switcher ─────────────────────────────────────────────
+(function initHofTabs() {
+  const tabBtns = document.querySelectorAll('.hof-tab-btn');
+  const panels = document.querySelectorAll('.hof-panel');
+
+  if (!tabBtns.length) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-tab');
+
+      // Update button states
+      tabBtns.forEach(b => {
+        b.classList.remove('hof-tab-btn--active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('hof-tab-btn--active');
+      btn.setAttribute('aria-selected', 'true');
+
+      // Show matching panel, hide others
+      panels.forEach(panel => {
+        const isTarget = panel.id === 'hof-panel-' + target;
+        if (isTarget) {
+          panel.removeAttribute('hidden');
+          panel.classList.add('hof-panel--active');
+          // Re-trigger reveal for newly visible cards
+          panel.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+            revealObserver.observe(el);
+          });
+        } else {
+          panel.setAttribute('hidden', '');
+          panel.classList.remove('hof-panel--active');
+        }
+      });
+    });
+  });
+})();
+
 

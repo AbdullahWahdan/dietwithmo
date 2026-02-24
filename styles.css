@@ -289,63 +289,63 @@
     gap: 10px;
 }
 
-/* ======== LANG TOGGLE BUTTON ======== */
+/* ======== LANG TOGGLE BUTTON (flag flags) ======== */
 .lang-toggle-btn {
     display: flex;
     align-items: center;
-    gap: 4px;
-    background: rgba(205, 255, 0, 0.1);
-    border: 1px solid rgba(205, 255, 0, 0.3);
+    gap: 6px;
+    background: rgba(205, 255, 0, 0.08);
+    border: 1px solid rgba(205, 255, 0, 0.25);
     border-radius: 50px;
-    padding: 6px 12px;
+    padding: 5px 12px;
     cursor: pointer;
     transition: var(--transition);
-    color: var(--yellow);
-    font-size: 1rem;
     line-height: 1;
 }
 
 .lang-toggle-btn:hover {
-    background: rgba(205, 255, 0, 0.2);
+    background: rgba(205, 255, 0, 0.18);
     border-color: var(--yellow);
     transform: translateY(-1px);
 }
 
+.lang-flag {
+    font-size: 1.35rem;
+    line-height: 1;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    opacity: 0.45;
+    filter: grayscale(40%);
+    display: inline-flex;
+    align-items: center;
+}
+
+.flag-img {
+    width: 28px;
+    height: auto;
+    border-radius: 3px;
+    display: block;
+    pointer-events: none;
+}
+
+.lang-flag.lang-flag--active {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.15);
+}
+
 .lang-divider {
-    font-size: 0.8rem;
-    color: rgba(205, 255, 0, 0.5);
+    font-size: 0.75rem;
+    color: rgba(205, 255, 0, 0.35);
     font-weight: 300;
 }
 
-.flag-emoji {
-    font-size: 1.1rem;
-    line-height: 1;
-}
-
-/* ======== THEME TOGGLE BUTTON ======== */
+/* Theme toggle hidden (removed from UI) */
 .theme-toggle-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(205, 255, 0, 0.1);
-    border: 1px solid rgba(205, 255, 0, 0.3);
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 1.1rem;
-    line-height: 1;
-}
-
-.theme-toggle-btn:hover {
-    background: rgba(205, 255, 0, 0.22);
-    border-color: var(--yellow);
-    transform: rotate(20deg) scale(1.1);
+    display: none;
 }
 
 .theme-icon {
-    line-height: 1;
+    display: none;
 }
 
 
@@ -2071,5 +2071,464 @@ footer {
 
     .cv-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   HALL OF FAME
+   ======================================== */
+#hall-of-fame {
+    padding: 110px 0;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+}
+
+#hall-of-fame::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(205, 255, 0, 0.07) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+#hall-of-fame::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(205, 255, 0, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Header */
+.hof-header {
+    text-align: center;
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 1;
+}
+
+.hof-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 18px;
+}
+
+.hof-header .section-title {
+    color: var(--white);
+    margin-bottom: 14px;
+}
+
+.hof-header .section-subtitle {
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 auto;
+}
+
+/* ── Tabs ──────────────────────────────── */
+.hof-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 52px;
+    position: relative;
+    z-index: 1;
+}
+
+.hof-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 50px;
+    border: 1px solid rgba(205, 255, 0, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.93rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+    white-space: nowrap;
+}
+
+.hof-tab-btn svg {
+    flex-shrink: 0;
+    transition: stroke 0.3s ease;
+}
+
+.hof-tab-btn:hover {
+    border-color: rgba(205, 255, 0, 0.45);
+    color: var(--yellow);
+    background: rgba(205, 255, 0, 0.07);
+    transform: translateY(-2px);
+}
+
+.hof-tab-btn--active {
+    background: var(--yellow) !important;
+    border-color: var(--yellow) !important;
+    color: var(--dark) !important;
+    box-shadow: 0 0 24px rgba(205, 255, 0, 0.45), 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.hof-tab-btn--active svg {
+    stroke: var(--dark);
+}
+
+/* ── Panel ──────────────────────────────── */
+.hof-panel {
+    display: none;
+    position: relative;
+    z-index: 1;
+    animation: hofFadeIn 0.35s ease;
+}
+
+.hof-panel--active {
+    display: block;
+}
+
+@keyframes hofFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Grid ──────────────────────────────── */
+.hof-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.hof-grid--center {
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+    justify-content: center;
+}
+
+/* ── Athlete Card ──────────────────────── */
+.hof-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(205, 255, 0, 0.12);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    cursor: default;
+}
+
+.hof-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(205, 255, 0, 0.12);
+    border-color: rgba(205, 255, 0, 0.4);
+}
+
+.hof-card-img-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hof-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.hof-card:hover .hof-card-img-wrap img {
+    transform: scale(1.07);
+}
+
+.hof-card-name {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    padding: 14px 10px;
+    letter-spacing: 0.01em;
+    transition: color 0.3s ease;
+}
+
+.hof-card:hover .hof-card-name {
+    color: var(--yellow);
+}
+
+/* Light theme */
+[data-theme="light"] #hall-of-fame {
+    background: #1a2600;
+}
+
+[data-theme="light"] .hof-tab-btn {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(168, 212, 0, 0.25);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="light"] .hof-tab-btn:hover {
+    color: var(--yellow);
+    background: rgba(205, 255, 0, 0.12);
+}
+
+[data-theme="light"] .hof-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(205, 255, 0, 0.18);
+}
+
+[data-theme="light"] .hof-card-name {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .hof-header .section-subtitle {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* RTL */
+[dir="rtl"] .hof-header {
+    direction: rtl;
+}
+
+[dir="rtl"] .hof-tabs {
+    flex-direction: row-reverse;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .hof-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 860px) {
+    .hof-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .hof-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .hof-tab-btn {
+        padding: 9px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .hof-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+}
+
+/* ========================================
+   TV APPEARANCES
+   ======================================== */
+#tv-shows {
+    padding: 110px 0;
+    background: var(--white);
+    position: relative;
+}
+
+.tv-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.tv-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--yellow-deep);
+    margin-bottom: 18px;
+}
+
+.tv-header .section-title {
+    color: var(--dark);
+    margin-bottom: 14px;
+}
+
+.tv-header .section-subtitle {
+    color: var(--gray);
+    margin: 0 auto;
+}
+
+/* Grid: 2 equal columns */
+.tv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Card */
+.tv-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #0d1a00;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.22);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.tv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32), 0 0 0 2px rgba(205, 255, 0, 0.35);
+}
+
+/* Photo frame — widescreen 16:9 */
+.tv-card-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #111;
+}
+
+.tv-card-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.tv-card:hover .tv-card-frame img {
+    transform: scale(1.04);
+}
+
+/* Dark gradient overlay */
+.tv-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.1) 50%,
+            transparent 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 14px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.tv-card:hover .tv-card-overlay {
+    opacity: 1;
+}
+
+/* Red LIVE badge */
+.tv-broadcast-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e02020;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 50px;
+    box-shadow: 0 0 16px rgba(224, 32, 32, 0.6);
+    animation: tvPulse 1.5s infinite;
+}
+
+@keyframes tvPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px rgba(224, 32, 32, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 22px rgba(224, 32, 32, 0.9);
+    }
+}
+
+/* Caption */
+.tv-card-caption {
+    padding: 18px 22px 20px;
+    background: #0d1a00;
+}
+
+.tv-card-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--yellow);
+    margin-bottom: 6px;
+}
+
+.tv-card-desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+}
+
+/* RTL */
+[dir="rtl"] .tv-header {
+    direction: rtl;
+}
+
+[dir="rtl"] .tv-card-caption {
+    text-align: right;
+}
+
+[dir="rtl"] .tv-card-overlay {
+    justify-content: flex-end;
+}
+
+/* Light theme — keep section white, card dark for cinematic feel */
+[data-theme="light"] #tv-shows {
+    background: #f5f9e8;
+}
+
+[data-theme="light"] .tv-header .section-title {
+    color: var(--dark);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .tv-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
