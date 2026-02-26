@@ -329,3 +329,251 @@ window.addEventListener('scroll', () => {
 })();
 
 
+// ─── Registration Form: Validation + Formspree AJAX ──────────────────────────
+(function initRegistrationForm() {
+  const form = document.getElementById('registrationForm');
+  if (!form) return;
+
+  const submitBtn = document.getElementById('regSubmitBtn');
+  const successBanner = document.getElementById('formSuccess');
+  const errorBanner = document.getElementById('formError');
+
+  // ── Bilingual placeholder translation ────────────────────────────────────
+  // Called by applyLanguage (extended below) and also on init
+  function updateFormPlaceholders(lang) {
+    const isAr = lang === 'ar';
+    form.querySelectorAll('[data-en-placeholder]').forEach(el => {
+      el.placeholder = isAr
+        ? (el.getAttribute('data-ar-placeholder') || el.getAttribute('data-en-placeholder'))
+        : el.getAttribute('data-en-placeholder');
+    });
+
+    // Update select option texts
+    form.querySelectorAll('select option[data-en]').forEach(opt => {
+      opt.textContent = isAr
+        ? (opt.getAttribute('data-ar') || opt.getAttribute('data-en'))
+        : opt.getAttribute('data-en');
+    });
+  }
+
+  // Hook into language changes — patch applyLanguage
+  const _originalApplyLanguage = window.applyLanguage || (() => { });
+  window.applyLanguageExtended = function (lang) {
+    _originalApplyLanguage(lang);
+    updateFormPlaceholders(lang);
+  };
+
+  // Apply on init
+  const initLang = localStorage.getItem('dwm-lang') || 'en';
+  updateFormPlaceholders(initLang);
+
+  // Also re-apply when langToggle is clicked (event fires after applyLanguage)
+  const lt = document.getElementById('langToggle');
+  if (lt) {
+    lt.addEventListener('click', () => {
+      setTimeout(() => {
+        const lang = localStorage.getItem('dwm-lang') || 'en';
+        updateFormPlaceholders(lang);
+      }, 50);
+    });
+  }
+
+  // ── Validation helpers ────────────────────────────────────────────────────
+  const isAr = () => (localStorage.getItem('dwm-lang') || 'en') === 'ar';
+
+  const messages = {
+    required: { en: 'This field is required.', ar: 'هذا الحقل مطلوب.' },
+    email: { en: 'Please enter a valid email.', ar: 'أدخل بريداً إلكترونياً صحيحاً.' },
+    phone: { en: 'Enter a valid phone number.', ar: 'أدخل رقم هاتف صحيحاً.' },
+    age: { en: 'Age must be between 5 and 100.', ar: 'العمر يجب أن يكون بين 5 و 100.' },
+  };
+
+  function msg(key) {
+    return isAr() ? messages[key].ar : messages[key].en;
+  }
+
+  function setError(inputEl, errId, message) {
+    inputEl.classList.add('invalid');
+    const errEl = document.getElementById(errId);
+    if (errEl) errEl.textContent = message;
+  }
+
+  function clearError(inputEl, errId) {
+    inputEl.classList.remove('invalid');
+    const errEl = document.getElementById(errId);
+    if (errEl) errEl.textContent = '';
+  }
+
+  function validateForm() {
+    let valid = true;
+
+    // Full Name
+    const name = document.getElementById('reg-name');
+    if (!name.value.trim()) {
+      setError(name, 'err-name', msg('required'));
+      valid = false;
+    } else {
+      clearError(name, 'err-name');
+    }
+
+    // Phone
+    const phone = document.getElementById('reg-phone');
+    const phoneVal = phone.value.trim().replace(/\s/g, '');
+    const phoneRx = /^[\+]?[\d\s\-\(\)]{7,20}$/;
+    if (!phoneVal) {
+      setError(phone, 'err-phone', msg('required'));
+      valid = false;
+    } else if (!phoneRx.test(phoneVal)) {
+      setError(phone, 'err-phone', msg('phone'));
+      valid = false;
+    } else {
+      clearError(phone, 'err-phone');
+    }
+
+    // Email
+    const email = document.getElementById('reg-email');
+    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim()) {
+      setError(email, 'err-email', msg('required'));
+      valid = false;
+    } else if (!emailRx.test(email.value.trim())) {
+      setError(email, 'err-email', msg('email'));
+      valid = false;
+    } else {
+      clearError(email, 'err-email');
+    }
+
+    // Age
+    const age = document.getElementById('reg-age');
+    const ageVal = parseInt(age.value);
+    if (!age.value.trim()) {
+      setError(age, 'err-age', msg('required'));
+      valid = false;
+    } else if (isNaN(ageVal) || ageVal < 5 || ageVal > 100) {
+      setError(age, 'err-age', msg('age'));
+      valid = false;
+    } else {
+      clearError(age, 'err-age');
+    }
+
+    // Gender
+    const gender = document.getElementById('reg-gender');
+    if (!gender.value) {
+      setError(gender, 'err-gender', msg('required'));
+      valid = false;
+    } else {
+      clearError(gender, 'err-gender');
+    }
+
+    // Goal
+    const goal = document.getElementById('reg-goal');
+    if (!goal.value) {
+      setError(goal, 'err-goal', msg('required'));
+      valid = false;
+    } else {
+      clearError(goal, 'err-goal');
+    }
+
+    // Package
+    const pkg = document.getElementById('reg-package');
+    if (pkg && !pkg.value) {
+      setError(pkg, 'err-package', msg('required'));
+      valid = false;
+    } else if (pkg) {
+      clearError(pkg, 'err-package');
+    }
+
+    return valid;
+  }
+
+  // Clear errors on input
+  form.querySelectorAll('.form-input, .form-select').forEach(el => {
+    el.addEventListener('input', () => el.classList.remove('invalid'));
+    el.addEventListener('change', () => el.classList.remove('invalid'));
+  });
+
+  // ── Form submit ───────────────────────────────────────────────────────────
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Hide any previous banners
+    successBanner.classList.remove('visible');
+    errorBanner.classList.remove('visible');
+
+    if (!validateForm()) return;
+
+    // Loading state
+    submitBtn.disabled = true;
+    const btnSpan = submitBtn.querySelector('span');
+    const origText = btnSpan ? btnSpan.textContent : '';
+    if (btnSpan) btnSpan.textContent = isAr() ? 'جار الإرسال...' : 'Sending…';
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        successBanner.classList.add('visible');
+        // Apply language on success banner text
+        successBanner.querySelectorAll('[data-en]').forEach(el => {
+          el.textContent = isAr()
+            ? el.getAttribute('data-ar')
+            : el.getAttribute('data-en');
+        });
+        form.reset();
+        // Scroll success banner into view
+        successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        errorBanner.classList.add('visible');
+        errorBanner.querySelectorAll('[data-en]').forEach(el => {
+          el.textContent = isAr()
+            ? el.getAttribute('data-ar')
+            : el.getAttribute('data-en');
+        });
+      }
+    } catch {
+      errorBanner.classList.add('visible');
+    } finally {
+      submitBtn.disabled = false;
+      if (btnSpan) btnSpan.textContent = origText;
+    }
+  });
+})();
+
+// ─── Client Messages Lightbox ────────────────────────────────────────────────
+(function initMsgLightbox() {
+  const lb = document.getElementById('msgLightbox');
+  const lbImg = document.getElementById('msgLightboxImg');
+  if (!lb || !lbImg) return;
+
+  window.openMsgLightbox = function (itemEl) {
+    const img = itemEl.querySelector('img');
+    if (!img) return;
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeMsgLightbox = function () {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    // Clear src slightly after animation so it doesn't flash
+    setTimeout(() => { lbImg.src = ''; }, 300);
+  };
+
+  // Prevent click on the image itself from closing (only background click closes)
+  lbImg.addEventListener('click', (e) => e.stopPropagation());
+
+  // Keyboard Escape to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lb.classList.contains('open')) {
+      window.closeMsgLightbox();
+    }
+  });
+})();
