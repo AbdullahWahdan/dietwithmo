@@ -1013,6 +1013,12 @@
       <div class="reg-card reveal">
         <form id="registrationForm" action="https://formspree.io/f/mbdawlaq" method="POST" novalidate>
 
+          <!-- Formspree anti-spam & routing hints -->
+          <input type="hidden" name="_subject" value="New Client Registration — Diet With Mo" />
+          <input type="hidden" name="_replyto" id="replyto-field" value="" />
+          <!-- Honeypot: bots fill this, humans don't -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
           <!-- Row 1: Name + Phone -->
           <div class="reg-row">
             <div class="form-group">

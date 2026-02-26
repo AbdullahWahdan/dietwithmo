@@ -492,6 +492,15 @@ window.addEventListener('scroll', () => {
     el.addEventListener('change', () => el.classList.remove('invalid'));
   });
 
+  // Mirror email → hidden _replyto field (helps Formspree spam classifier)
+  const emailInput = document.getElementById('reg-email');
+  const replytoHidden = document.getElementById('replyto-field');
+  if (emailInput && replytoHidden) {
+    emailInput.addEventListener('input', () => {
+      replytoHidden.value = emailInput.value;
+    });
+  }
+
   // ── Form submit ───────────────────────────────────────────────────────────
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
