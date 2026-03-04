@@ -2627,6 +2627,19 @@ footer {
     margin-bottom: 20px;
 }
 
+/* Honeypot — visually hidden but in the DOM flow (bots fill it, humans can't see it) */
+.form-honeypot {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+    pointer-events: none;
+    tab-size: -1;
+}
+
 /* Label */
 .form-label {
     font-family: 'Outfit', sans-serif;

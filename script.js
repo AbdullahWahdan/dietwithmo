@@ -493,12 +493,28 @@ window.addEventListener('scroll', () => {
   });
 
   // Mirror email → hidden _replyto field (helps Formspree spam classifier)
+  // Also catches browser autofill via animationstart trick
   const emailInput = document.getElementById('reg-email');
   const replytoHidden = document.getElementById('replyto-field');
-  if (emailInput && replytoHidden) {
-    emailInput.addEventListener('input', () => {
-      replytoHidden.value = emailInput.value;
-    });
+  const loadTimeField = document.getElementById('form-load-time');
+
+  // Stamp when the form was loaded (ISO string)
+  if (loadTimeField) {
+    loadTimeField.value = new Date().toISOString();
+  }
+
+  function syncReplyTo() {
+    if (emailInput && replytoHidden) {
+      replytoHidden.value = emailInput.value.trim();
+    }
+  }
+
+  if (emailInput) {
+    emailInput.addEventListener('input', syncReplyTo);
+    emailInput.addEventListener('change', syncReplyTo);
+    emailInput.addEventListener('blur', syncReplyTo);
+    // Catch autofill: browsers trigger animationstart on autofilled fields
+    emailInput.addEventListener('animationstart', syncReplyTo);
   }
 
   // ── Form submit ───────────────────────────────────────────────────────────
@@ -517,7 +533,15 @@ window.addEventListener('scroll', () => {
     const origText = btnSpan ? btnSpan.textContent : '';
     if (btnSpan) btnSpan.textContent = isAr() ? 'جار الإرسال...' : 'Sending…';
 
+    // Ensure replyto is in sync right before submit
+    syncReplyTo();
+
     const data = new FormData(form);
+    // Add human-readable time_spent_seconds so Formspree sees engagement time
+    const loadedAt = loadTimeField && loadTimeField.value ? new Date(loadTimeField.value) : null;
+    if (loadedAt) {
+      data.set('time_spent_seconds', Math.round((Date.now() - loadedAt.getTime()) / 1000));
+    }
 
     try {
       const res = await fetch(form.action, {
