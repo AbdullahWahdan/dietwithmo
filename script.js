@@ -492,32 +492,19 @@ window.addEventListener('scroll', () => {
     el.addEventListener('change', () => el.classList.remove('invalid'));
   });
 
-  // Mirror email → hidden _replyto field (helps Formspree spam classifier)
-  // Also catches browser autofill via animationstart trick
-  const emailInput = document.getElementById('reg-email');
-  const replytoHidden = document.getElementById('replyto-field');
-  const loadTimeField = document.getElementById('form-load-time');
+  // ─── EmailJS configuration ──────────────────────────────────────────────
+  // STEP 1: Create a free account at https://www.emailjs.com
+  // STEP 2: Add an Email Service (Gmail, Outlook, etc.) → copy your Service ID
+  // STEP 3: Create an Email Template → copy your Template ID
+  // STEP 4: Go to Account > API Keys → copy your Public Key
+  // Then fill in the three constants below:
+  const EMAILJS_PUBLIC_KEY = 'baO-oQr1BcK4Dgs6w';   // ← replace
+  const EMAILJS_SERVICE_ID = 'service_yddsboc';   // ← replace
+  const EMAILJS_TEMPLATE_ID = 'template_zj9rppa';  // ← replace
 
-  // Stamp when the form was loaded (ISO string)
-  if (loadTimeField) {
-    loadTimeField.value = new Date().toISOString();
-  }
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
-  function syncReplyTo() {
-    if (emailInput && replytoHidden) {
-      replytoHidden.value = emailInput.value.trim();
-    }
-  }
-
-  if (emailInput) {
-    emailInput.addEventListener('input', syncReplyTo);
-    emailInput.addEventListener('change', syncReplyTo);
-    emailInput.addEventListener('blur', syncReplyTo);
-    // Catch autofill: browsers trigger animationstart on autofilled fields
-    emailInput.addEventListener('animationstart', syncReplyTo);
-  }
-
-  // ── Form submit ───────────────────────────────────────────────────────────
+  // ── Form submit via EmailJS (no spam filtering) ──────────────────────────
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -527,50 +514,45 @@ window.addEventListener('scroll', () => {
 
     if (!validateForm()) return;
 
+    // Honeypot check — silently abort if bot filled the hidden field
+    const honeypot = form.querySelector('[name="honeypot"]');
+    if (honeypot && honeypot.value) return;
+
     // Loading state
     submitBtn.disabled = true;
     const btnSpan = submitBtn.querySelector('span');
     const origText = btnSpan ? btnSpan.textContent : '';
     if (btnSpan) btnSpan.textContent = isAr() ? 'جار الإرسال...' : 'Sending…';
 
-    // Ensure replyto is in sync right before submit
-    syncReplyTo();
-
-    const data = new FormData(form);
-    // Add human-readable time_spent_seconds so Formspree sees engagement time
-    const loadedAt = loadTimeField && loadTimeField.value ? new Date(loadTimeField.value) : null;
-    if (loadedAt) {
-      data.set('time_spent_seconds', Math.round((Date.now() - loadedAt.getTime()) / 1000));
-    }
+    // Collect form values into the template params object.
+    // The keys here must match the {{variable}} names in your EmailJS template.
+    const templateParams = {
+      full_name: document.getElementById('reg-name').value.trim(),
+      phone: document.getElementById('reg-phone').value.trim(),
+      email: document.getElementById('reg-email').value.trim(),
+      age: document.getElementById('reg-age').value.trim(),
+      gender: document.getElementById('reg-gender').value,
+      goal: document.getElementById('reg-goal').value,
+      package: (document.getElementById('reg-package') || {}).value || 'N/A',
+      reply_to: document.getElementById('reg-email').value.trim(),
+    };
 
     try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
 
-      if (res.ok) {
-        successBanner.classList.add('visible');
-        // Apply language on success banner text
-        successBanner.querySelectorAll('[data-en]').forEach(el => {
-          el.textContent = isAr()
-            ? el.getAttribute('data-ar')
-            : el.getAttribute('data-en');
-        });
-        form.reset();
-        // Scroll success banner into view
-        successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      } else {
-        errorBanner.classList.add('visible');
-        errorBanner.querySelectorAll('[data-en]').forEach(el => {
-          el.textContent = isAr()
-            ? el.getAttribute('data-ar')
-            : el.getAttribute('data-en');
-        });
-      }
-    } catch {
+      successBanner.classList.add('visible');
+      successBanner.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = isAr() ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
+      form.reset();
+      successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    } catch (err) {
+      console.error('EmailJS error:', err);
       errorBanner.classList.add('visible');
+      errorBanner.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = isAr() ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
     } finally {
       submitBtn.disabled = false;
       if (btnSpan) btnSpan.textContent = origText;

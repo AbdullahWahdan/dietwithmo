@@ -14,6 +14,8 @@
     content="Personalized nutrition plans by certified nutritionist Dr. Mohamed Khaled." />
   <link rel="icon" type="image/jpeg" href="431249367_824868302991522_2055455087122326823_n.jpg" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -1274,16 +1276,11 @@
 
       <!-- Registration Form Card -->
       <div class="reg-card reveal">
-        <form id="registrationForm" action="https://formspree.io/f/mbdawlaq" method="POST" novalidate>
+        <form id="registrationForm" novalidate>
 
-          <!-- Formspree anti-spam & routing hints -->
-          <input type="hidden" name="_subject" value="New Client Registration — Diet With Mo" />
-          <input type="hidden" name="_replyto" id="replyto-field" value="" />
-          <input type="hidden" name="_language" value="en" />
-          <input type="hidden" name="_source_page" value="dietwithmo" />
-          <input type="hidden" name="form_loaded_at" id="form-load-time" value="" />
-          <!-- Honeypot: visually hidden but NOT display:none — bots fill it, humans don't -->
-          <input class="form-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <!-- Honeypot: visually hidden — bots fill it, humans don't -->
+          <input class="form-honeypot" type="text" name="honeypot" tabindex="-1" autocomplete="off"
+            aria-hidden="true" />
 
 
           <!-- Row 1: Name + Phone -->
