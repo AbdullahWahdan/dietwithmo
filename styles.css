@@ -1609,15 +1609,24 @@ a {
 
 @media (max-width: 520px) {
     .carousel-outer {
-        padding: 0 40px;
+        padding: 0 36px;
+    }
+
+    .carousel-track-wrap {
+        overflow: hidden;
     }
 
     .carousel-slide {
         flex: 0 0 100%;
+        min-width: 100%;
     }
 
     .carousel-track {
         gap: 0;
+    }
+
+    .carousel-img-wrap {
+        height: 260px;
     }
 }
 
@@ -2886,9 +2895,11 @@ footer {
     width: 100%;
     display: block;
     max-height: 340px;
+    min-height: 200px;
     object-fit: cover;
     border-radius: 0;
     outline: none;
+    background: #000;
 }
 
 .client-video-info {
@@ -2944,8 +2955,16 @@ footer {
 }
 
 @media (max-width: 500px) {
+    .client-video-wrap {
+        aspect-ratio: 9 / 16;
+    }
+
     .client-video-wrap video {
-        max-height: 260px;
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        min-height: unset;
+        object-fit: cover;
     }
 }
 

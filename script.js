@@ -288,6 +288,13 @@ window.addEventListener('scroll', () => {
 
   updateUI();
   startAuto();
+
+  // Recalculate offset on resize/orientation change so slides stay centred on mobile
+  window.addEventListener('resize', () => {
+    // Brief debounce to let the browser finish layout
+    clearTimeout(window._carouselResizeTimer);
+    window._carouselResizeTimer = setTimeout(updateUI, 120);
+  });
 })();
 
 // ─── Hall of Fame Tab Switcher ─────────────────────────────────────────────
