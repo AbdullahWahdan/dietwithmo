@@ -560,7 +560,90 @@ window.addEventListener('scroll', () => {
   });
 })();
 
-// ─── Client Messages Lightbox ────────────────────────────────────────────────
+// ─── Calorie Calculator (Mifflin-St Jeor) ────────────────────────────────────
+function calculateCalories() {
+  const ageEl = document.getElementById('calcAge');
+  const weightEl = document.getElementById('calcWeight');
+  const heightEl = document.getElementById('calcHeight');
+  const activityEl = document.getElementById('calcActivity');
+  const resultEl = document.getElementById('calcResult');
+
+  const gender = document.querySelector('input[name="gender"]:checked')?.value || 'male';
+  const goal = document.querySelector('input[name="goal"]:checked')?.value || 'maintain';
+  const age = parseFloat(ageEl.value);
+  const weight = parseFloat(weightEl.value);
+  const height = parseFloat(heightEl.value);
+  const activity = parseFloat(activityEl.value);
+
+  // ── Validate ─────────────────────────────────────────────────────────────
+  let valid = true;
+
+  [ageEl, weightEl, heightEl].forEach(el => {
+    el.classList.remove('error');
+    const v = parseFloat(el.value);
+    if (!el.value || isNaN(v) || v <= 0) {
+      el.classList.add('error');
+      valid = false;
+    }
+  });
+
+  if (!valid) return;
+
+  // ── Mifflin-St Jeor Equation ──────────────────────────────────────────────
+  // Male:   BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age + 5
+  // Female: BMR = 10 × weight(kg) + 6.25 × height(cm) − 5 × age − 161
+  const base = (10 * weight) + (6.25 * height) - (5 * age);
+  const bmr = gender === 'male' ? base + 5 : base - 161;
+  const tdee = bmr * activity;
+
+  // ── Apply goal adjustment ─────────────────────────────────────────────────
+  let goalCalories;
+  let goalNote;
+  const isAr = (localStorage.getItem('dwm-lang') || 'en') === 'ar';
+
+  if (goal === 'lose') {
+    goalCalories = tdee - 500;
+    goalNote = isAr
+      ? '500 سعرة أقل من TDEE لخسارة ~0.5 كجم/أسبوع'
+      : '500 kcal below TDEE for ~0.5 kg/week loss';
+  } else if (goal === 'gain') {
+    goalCalories = tdee + 500;
+    goalNote = isAr
+      ? '500 سعرة فوق TDEE لبناء العضلات تدريجياً'
+      : '500 kcal above TDEE for steady muscle gain';
+  } else {
+    goalCalories = tdee;
+    goalNote = isAr
+      ? 'يساوي TDEE للحفاظ على وزنك الحالي'
+      : 'Equal to TDEE to maintain your current weight';
+  }
+
+  // Ensure minimum safe calories
+  const minCalories = gender === 'male' ? 1500 : 1200;
+  if (goalCalories < minCalories) goalCalories = minCalories;
+
+  // ── Display results ───────────────────────────────────────────────────────
+  document.getElementById('calcBmrVal').textContent = Math.round(bmr).toLocaleString();
+  document.getElementById('calcTdeeVal').textContent = Math.round(tdee).toLocaleString();
+  document.getElementById('calcGoalVal').textContent = Math.round(goalCalories).toLocaleString();
+  document.getElementById('calcGoalNote').textContent = goalNote;
+
+  // Show result panel with animation
+  if (resultEl.hasAttribute('hidden')) {
+    resultEl.removeAttribute('hidden');
+    // Scroll into view smoothly
+    setTimeout(() => {
+      resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+}
+
+// Clear error state on input
+['calcAge', 'calcWeight', 'calcHeight'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', () => el.classList.remove('error'));
+});
+
 (function initMsgLightbox() {
   const lb = document.getElementById('msgLightbox');
   const lbImg = document.getElementById('msgLightboxImg');
