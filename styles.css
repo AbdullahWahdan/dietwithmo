@@ -3908,3 +3908,426 @@ footer {
         font-size: 2rem;
     }
 }
+
+/* ========================================
+   WHY CAROUSEL — MOBILE SWIPEABLE
+   ======================================== */
+
+/* Desktop: the grid layout is unchanged */
+.why-carousel-outer {
+    position: relative;
+}
+
+.why-carousel-track-wrap {
+    overflow: visible;
+}
+
+/* Hide carousel nav on desktop */
+.why-carousel-btn,
+.why-carousel-dots {
+    display: none;
+}
+
+/* Mobile: convert why-grid to a horizontal swipe carousel */
+@media (max-width: 767px) {
+    .why-carousel-outer {
+        padding: 0 44px;
+    }
+
+    .why-carousel-track-wrap {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .why-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+    }
+
+    .why-card {
+        flex: 0 0 100% !important;
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+
+    .why-card--wide {
+        grid-column: unset !important;
+    }
+
+    /* Show arrow nav */
+    .why-carousel-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-60%);
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1.5px solid rgba(205, 255, 0, 0.3);
+        color: var(--yellow);
+        cursor: pointer;
+        z-index: 10;
+        transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .why-carousel-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .why-carousel-btn:hover {
+        background: var(--yellow);
+        border-color: var(--yellow);
+        color: var(--dark);
+        transform: translateY(-60%) scale(1.08);
+    }
+
+    .why-carousel-btn--prev {
+        left: 2px;
+    }
+
+    .why-carousel-btn--next {
+        right: 2px;
+    }
+
+    [dir="rtl"] .why-carousel-btn--prev {
+        left: auto;
+        right: 2px;
+    }
+
+    [dir="rtl"] .why-carousel-btn--next {
+        right: auto;
+        left: 2px;
+    }
+
+    /* Show dots */
+    .why-carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 7px;
+        margin-top: 20px;
+    }
+
+    .why-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(205, 255, 0, 0.25);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: all 0.3s ease;
+    }
+
+    .why-dot.active {
+        background: var(--yellow);
+        width: 24px;
+        border-radius: 4px;
+        box-shadow: 0 0 8px rgba(205, 255, 0, 0.5);
+    }
+}
+
+/* ========================================
+   FLOATING PACKAGES BUTTON
+   ======================================== */
+.floating-pkg-btn {
+    position: fixed;
+    bottom: 88px;
+    right: 20px;
+    z-index: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--yellow);
+    color: var(--dark);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    padding: 11px 18px 11px 14px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(205, 255, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
+    animation: pkgPulse 3s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+.floating-pkg-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 12px 36px rgba(205, 255, 0, 0.65), 0 4px 12px rgba(0, 0, 0, 0.35);
+    animation: none;
+}
+
+.floating-pkg-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+}
+
+@keyframes pkgPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 6px 24px rgba(205, 255, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 6px 36px rgba(205, 255, 0, 0.75), 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+
+[dir="rtl"] .floating-pkg-btn {
+    right: auto;
+    left: 20px;
+}
+
+/* ========================================
+   FLOATING CALCULATOR BUTTON
+   ======================================== */
+.floating-calc-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 20px;
+    z-index: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(13, 26, 0, 0.92);
+    border: 1.5px solid rgba(205, 255, 0, 0.35);
+    color: var(--yellow);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 11px 16px 11px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 12px rgba(205, 255, 0, 0.15);
+    transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    white-space: nowrap;
+}
+
+.floating-calc-btn:hover {
+    background: rgba(205, 255, 0, 0.12);
+    border-color: var(--yellow);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5), 0 0 20px rgba(205, 255, 0, 0.25);
+}
+
+[dir="rtl"] .floating-calc-btn {
+    right: auto;
+    left: 20px;
+}
+
+/* On very narrow screens, hide button text */
+@media (max-width: 360px) {
+    .floating-calc-label {
+        display: none;
+    }
+
+    .floating-pkg-btn span {
+        display: none;
+    }
+
+    .floating-calc-btn {
+        padding: 12px;
+    }
+
+    .floating-pkg-btn {
+        padding: 12px;
+    }
+}
+
+/* ========================================
+   CALCULATOR DRAWER
+   ======================================== */
+.calc-drawer-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1100;
+    animation: drawerFadeIn 0.25s ease;
+}
+
+.calc-drawer-backdrop.open {
+    display: block;
+}
+
+.calc-drawer {
+    position: fixed;
+    z-index: 1200;
+    background: #0d1a00;
+    border: 1px solid rgba(205, 255, 0, 0.18);
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(205, 255, 0, 0.06);
+    overflow-y: auto;
+    transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Desktop: slides from the right */
+@media (min-width: 640px) {
+    .calc-drawer {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 420px;
+        border-radius: 24px 0 0 24px;
+        transform: translateX(100%);
+    }
+
+    .calc-drawer.open {
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    [dir="rtl"] .calc-drawer {
+        right: auto;
+        left: 0;
+        border-radius: 0 24px 24px 0;
+        transform: translateX(-100%);
+    }
+
+    [dir="rtl"] .calc-drawer.open {
+        transform: translateX(0);
+    }
+}
+
+/* Mobile: slides from the bottom */
+@media (max-width: 639px) {
+    .calc-drawer {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        max-height: 92vh;
+        border-radius: 24px 24px 0 0;
+        transform: translateY(100%);
+    }
+
+    .calc-drawer.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@keyframes drawerFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Drawer header */
+.calc-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid rgba(205, 255, 0, 0.1);
+    position: sticky;
+    top: 0;
+    background: #0d1a00;
+    z-index: 2;
+}
+
+.calc-drawer-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--yellow);
+}
+
+.calc-drawer-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+}
+
+.calc-drawer-close:hover {
+    background: rgba(205, 255, 0, 0.12);
+    color: var(--yellow);
+    transform: rotate(90deg);
+}
+
+/* Drawer body */
+.calc-drawer-body {
+    padding: 20px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Select inside drawer */
+.calc-drawer .calc-select {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(205, 255, 0, 0.15);
+    border-radius: 12px;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    padding: 12px 40px 12px 14px;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23CDFF00' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.calc-drawer .calc-select:focus {
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 3px rgba(205, 255, 0, 0.12);
+}
+
+.calc-drawer .calc-select option {
+    background: #1a2600;
+    color: var(--white);
+}
+
+[dir="rtl"] .calc-drawer .calc-select {
+    background-position: left 12px center;
+    padding-right: 14px;
+    padding-left: 40px;
+}
+
+/* RTL drawer */
+[dir="rtl"] .calc-drawer-header {
+    direction: rtl;
+}
+
+[dir="rtl"] .calc-drawer-body {
+    direction: rtl;
+}

@@ -682,3 +682,203 @@ function calculateCalories() {
     }
   });
 })();
+
+// ─── Why Cards Mobile Swipe Carousel ────────────────────────────────────────
+(function initWhyCarousel() {
+  const grid = document.getElementById('whyGrid');
+  const outer = document.getElementById('whyCarouselOuter');
+  const dotsWrap = document.getElementById('whyDots');
+  const prevBtn = document.getElementById('whyPrev');
+  const nextBtn = document.getElementById('whyNext');
+
+  if (!grid || !outer) return;
+
+  const cards = Array.from(grid.querySelectorAll('.why-card'));
+  const total = cards.length;
+  let current = 0;
+  let isMobile = false;
+  let touchStartX = 0;
+
+  function checkMobile() {
+    return window.innerWidth <= 767;
+  }
+
+  // Build dots (once)
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'why-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to card ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(index) {
+    if (!checkMobile()) return;
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    current = index;
+    const cardW = cards[0] ? cards[0].offsetWidth : 0;
+    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+    const offset = current * cardW;
+    grid.style.transform = `translateX(${isRtl ? offset : -offset}px)`;
+    dotsWrap.querySelectorAll('.why-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  prevBtn && prevBtn.addEventListener('click', () => {
+    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+    goTo(isRtl ? current + 1 : current - 1);
+  });
+  nextBtn && nextBtn.addEventListener('click', () => {
+    const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+    goTo(isRtl ? current - 1 : current + 1);
+  });
+
+  // Touch swipe
+  grid.addEventListener('touchstart', (e) => {
+    if (!checkMobile()) return;
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  grid.addEventListener('touchend', (e) => {
+    if (!checkMobile()) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 45) goTo(current + (dx < 0 ? 1 : -1));
+  });
+
+  // Reset on resize (desktop → no transform)
+  window.addEventListener('resize', () => {
+    if (!checkMobile()) {
+      grid.style.transform = '';
+      current = 0;
+    } else {
+      goTo(current);
+    }
+  });
+})();
+
+// ─── Floating Packages Button — hide when #packages is visible ───────────────
+(function initFloatingPkgBtn() {
+  const btn = document.getElementById('floatingPkgBtn');
+  const sect = document.getElementById('packages');
+  if (!btn || !sect) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    const visible = entries[0].isIntersecting;
+    btn.classList.toggle('hidden', visible);
+  }, { threshold: 0.15 });
+
+  obs.observe(sect);
+
+  // Keep bilingual text in sync with language switch
+  const lt = document.getElementById('langToggle');
+  if (lt) {
+    lt.addEventListener('click', () => {
+      setTimeout(() => {
+        const lang = localStorage.getItem('dwm-lang') || 'en';
+        const spanEl = btn.querySelector('span[data-en]');
+        if (spanEl) spanEl.textContent = lang === 'ar' ? spanEl.getAttribute('data-ar') : spanEl.getAttribute('data-en');
+      }, 60);
+    });
+  }
+})();
+
+// ─── Calculator Drawer ────────────────────────────────────────────────────────
+(function initCalcDrawer() {
+  const openBtn = document.getElementById('floatingCalcBtn');
+  const drawer = document.getElementById('calcDrawer');
+  const backdrop = document.getElementById('calcDrawerBackdrop');
+  const closeBtn = document.getElementById('calcDrawerClose');
+  if (!openBtn || !drawer || !backdrop) return;
+
+  window.openCalcDrawer = function () {
+    drawer.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    drawer.querySelector('input, select') && drawer.querySelector('input, select').focus();
+  };
+
+  window.closeCalcDrawer = function () {
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  openBtn.addEventListener('click', window.openCalcDrawer);
+  closeBtn && closeBtn.addEventListener('click', window.closeCalcDrawer);
+  backdrop.addEventListener('click', window.closeCalcDrawer);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      window.closeCalcDrawer();
+    }
+  });
+
+  // Clear error state on input in drawer
+  ['dwrAge', 'dwrWeight', 'dwrHeight'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', () => el.classList.remove('error'));
+  });
+})();
+
+// ─── Calculator Drawer: Calculate function ────────────────────────────────────
+function calculateCaloriesDrawer() {
+  const ageEl = document.getElementById('dwrAge');
+  const weightEl = document.getElementById('dwrWeight');
+  const heightEl = document.getElementById('dwrHeight');
+  const activityEl = document.getElementById('dwrActivity');
+  const resultEl = document.getElementById('dwrCalcResult');
+
+  const gender = document.querySelector('input[name="dwrGender"]:checked')?.value || 'male';
+  const goal = document.querySelector('input[name="dwrGoal"]:checked')?.value || 'maintain';
+  const age = parseFloat(ageEl.value);
+  const weight = parseFloat(weightEl.value);
+  const height = parseFloat(heightEl.value);
+  const activity = parseFloat(activityEl.value);
+
+  // Validate
+  let valid = true;
+  [ageEl, weightEl, heightEl].forEach(el => {
+    el.classList.remove('error');
+    const v = parseFloat(el.value);
+    if (!el.value || isNaN(v) || v <= 0) {
+      el.classList.add('error');
+      valid = false;
+    }
+  });
+  if (!valid) return;
+
+  // Mifflin-St Jeor
+  const base = (10 * weight) + (6.25 * height) - (5 * age);
+  const bmr = gender === 'male' ? base + 5 : base - 161;
+  const tdee = bmr * activity;
+
+  const isAr = (localStorage.getItem('dwm-lang') || 'en') === 'ar';
+  let goalCalories, goalNote;
+
+  if (goal === 'lose') {
+    goalCalories = tdee - 500;
+    goalNote = isAr ? '500 سعرة أقل من TDEE لخسارة ~0.5 كجم/أسبوع' : '500 kcal below TDEE for ~0.5 kg/week loss';
+  } else if (goal === 'gain') {
+    goalCalories = tdee + 500;
+    goalNote = isAr ? '500 سعرة فوق TDEE لبناء العضلات تدريجياً' : '500 kcal above TDEE for steady muscle gain';
+  } else {
+    goalCalories = tdee;
+    goalNote = isAr ? 'يساوي TDEE للحفاظ على وزنك الحالي' : 'Equal to TDEE to maintain your current weight';
+  }
+
+  const minCalories = gender === 'male' ? 1500 : 1200;
+  if (goalCalories < minCalories) goalCalories = minCalories;
+
+  document.getElementById('dwrBmrVal').textContent = Math.round(bmr).toLocaleString();
+  document.getElementById('dwrTdeeVal').textContent = Math.round(tdee).toLocaleString();
+  document.getElementById('dwrGoalVal').textContent = Math.round(goalCalories).toLocaleString();
+  document.getElementById('dwrGoalNote').textContent = goalNote;
+
+  if (resultEl && resultEl.hasAttribute('hidden')) {
+    resultEl.removeAttribute('hidden');
+    setTimeout(() => resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+  }
+}
+
