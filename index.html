@@ -170,7 +170,8 @@
                 Mohamed</span></span><br />
             <span data-en="Khaled" data-ar="خالد">Khaled</span>
           </h2>
-          <ul class="about-list">
+          <!-- Desktop: bullet list  |  Mobile: flashcards -->
+          <ul class="about-list about-list--desktop">
             <li data-en="Clinical Nutrition Specialist, Sports Nutrition Specialist, and Weight Management Expert."
               data-ar="أخصائي تغذية إكلينيكية ورياضية وخبير إدارة الوزن (سمنة ونحافة).">Clinical Nutrition Specialist,
               Sports Nutrition Specialist, and Weight Management Expert.</li>
@@ -200,6 +201,65 @@
               <strong>5,000 online clients from 17+ countries</strong> over the past 10 years achieve their goals.
             </li>
           </ul>
+
+          <!-- Mobile flashcards -->
+          <div class="about-flashcards" id="aboutFlashcards">
+            <div class="about-fc-viewport">
+              <div class="about-fc-track" id="aboutFcTrack">
+                <div class="about-fc-card">
+                  <div class="about-fc-icon">🩺</div>
+                  <p data-en="Clinical Nutrition Specialist, Sports Nutrition Specialist &amp; Weight Management Expert."
+                    data-ar="أخصائي تغذية إكلينيكية ورياضية وخبير إدارة الوزن.">Clinical Nutrition Specialist, Sports Nutrition Specialist &amp; Weight Management Expert.</p>
+                </div>
+                <div class="about-fc-card">
+                  <div class="about-fc-icon">🎓</div>
+                  <p data-en="Graduate of Faculty of Pharmacy, Ain Shams University — Excellent Grade."
+                    data-ar="خريج كلية الصيدلة، جامعة عين شمس — تقدير ممتاز.">Graduate of Faculty of Pharmacy, Ain Shams University — Excellent Grade.</p>
+                </div>
+                <div class="about-fc-card">
+                  <div class="about-fc-icon">🎾</div>
+                  <p data-en="Former ranked tennis player at the national junior level (Top 8)."
+                    data-ar="لاعب تنس سابق في المنتخب الوطني للناشئين — مصنف ضمن أفضل 8.">Former ranked tennis player at the national junior level (Top 8).</p>
+                </div>
+                <div class="about-fc-card">
+                  <div class="about-fc-icon">🏅</div>
+                  <p data-en="Certified fitness &amp; tennis coach accredited by the International Tennis Federation (ITF)."
+                    data-ar="مدرب لياقة وتنس معتمد من الاتحاد الدولي للتنس (ITF).">Certified fitness &amp; tennis coach accredited by the International Tennis Federation (ITF).</p>
+                </div>
+                <div class="about-fc-card">
+                  <div class="about-fc-icon">🏥</div>
+                  <p data-en="Worked as Clinical Nutrition Specialist in multiple hospitals."
+                    data-ar="عمل كأخصائي تغذية إكلينيكية في عدة مستشفيات.">Worked as Clinical Nutrition Specialist in multiple hospitals.</p>
+                </div>
+                <div class="about-fc-card">
+                  <div class="about-fc-icon">🌍</div>
+                  <p data-en="Sports Nutrition Specialist for Egyptian &amp; international teams (Saudi Arabia, Oman)."
+                    data-ar="أخصائي تغذية رياضية مع منتخبات مصرية ودولية (السعودية، عُمان).">Sports Nutrition Specialist for Egyptian &amp; international teams (Saudi Arabia, Oman).</p>
+                </div>
+                <div class="about-fc-card">
+                  <div class="about-fc-icon">🏆</div>
+                  <p data-en="Currently Sports Nutrition Specialist for the Egyptian National Tennis Team."
+                    data-ar="أخصائي التغذية الرياضية للمنتخب المصري للتنس.">Currently Sports Nutrition Specialist for the Egyptian National Tennis Team.</p>
+                </div>
+                <div class="about-fc-card">
+                  <div class="about-fc-icon">🌐</div>
+                  <p data-en="Helped 5,000+ online clients from 17+ countries over 10 years achieve their goals."
+                    data-ar="ساعد أكثر من 5,000 عميل من 17+ دولة خلال 10 سنوات على تحقيق أهدافهم.">Helped 5,000+ online clients from 17+ countries over 10 years achieve their goals.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Navigation -->
+            <div class="about-fc-nav">
+              <button class="about-fc-btn" id="aboutFcPrev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <div class="about-fc-dots" id="aboutFcDots"></div>
+              <button class="about-fc-btn" id="aboutFcNext" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+
           <div class="about-tags">
             <span class="about-tag">
               <svg class="tag-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1149,67 +1209,105 @@
           unedited.</p>
       </div>
 
-      <!-- Video Reviews -->
-      <div class="client-videos reveal">
+      <!-- Video Reviews Carousel -->
+      <div class="client-videos-carousel reveal" id="clientVideosCarousel">
+        <div class="cv-carousel-viewport">
+          <div class="cv-carousel-track" id="cvTrack">
 
-        <div class="client-video-card">
-          <div class="client-video-wrap">
-            <video controls preload="metadata" playsinline>
-              <source src="images/Videos/Abdullah - Cairo.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="client-video-info">
-            <div class="client-video-name">Abdullah</div>
-            <div class="client-video-location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Cairo, Egypt 🇪🇬
+            <div class="client-video-card cv-slide">
+              <div class="client-video-wrap">
+                <video controls preload="none" playsinline
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E"
+                  id="cvVideo0">
+                  <source src="images/Videos/Abdullah - Cairo.mp4" type="video/mp4" />
+                </video>
+                <!-- Play button overlay -->
+                <button class="cv-play-btn" aria-label="Play video" onclick="cvPlayVideo(event,0)">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </button>
+                <!-- Thumbnail overlay (custom) -->
+                <div class="cv-thumb-overlay" id="cvThumb0">
+                  <div class="cv-thumb-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><polygon points="5,3 19,12 5,21"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="client-video-info">
+                <div class="client-video-name">Abdullah</div>
+                <div class="client-video-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Cairo, Egypt 🇪🇬
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="client-video-card">
-          <div class="client-video-wrap">
-            <video controls preload="metadata" playsinline>
-              <source src="images/Videos/Andrew - Canada.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="client-video-info">
-            <div class="client-video-name">Andrew</div>
-            <div class="client-video-location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Canada 🇨🇦
+            <div class="client-video-card cv-slide">
+              <div class="client-video-wrap">
+                <video controls preload="none" playsinline id="cvVideo1">
+                  <source src="images/Videos/Andrew - Canada.mp4" type="video/mp4" />
+                </video>
+                <button class="cv-play-btn" aria-label="Play video" onclick="cvPlayVideo(event,1)">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </button>
+                <div class="cv-thumb-overlay" id="cvThumb1">
+                  <div class="cv-thumb-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><polygon points="5,3 19,12 5,21"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="client-video-info">
+                <div class="client-video-name">Andrew</div>
+                <div class="client-video-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Canada 🇨🇦
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="client-video-card">
-          <div class="client-video-wrap">
-            <video controls preload="metadata" playsinline>
-              <source src="images/Videos/Hassan - Iraq.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <div class="client-video-info">
-            <div class="client-video-name">Hassan</div>
-            <div class="client-video-location">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-              Iraq 🇮🇶
+            <div class="client-video-card cv-slide">
+              <div class="client-video-wrap">
+                <video controls preload="none" playsinline id="cvVideo2">
+                  <source src="images/Videos/Hassan - Iraq.mp4" type="video/mp4" />
+                </video>
+                <button class="cv-play-btn" aria-label="Play video" onclick="cvPlayVideo(event,2)">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </button>
+                <div class="cv-thumb-overlay" id="cvThumb2">
+                  <div class="cv-thumb-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><polygon points="5,3 19,12 5,21"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="client-video-info">
+                <div class="client-video-name">Hassan</div>
+                <div class="client-video-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Iraq 🇮🇶
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-      </div><!-- /client-videos -->
+          </div><!-- /cv-carousel-track -->
+        </div><!-- /cv-carousel-viewport -->
+
+        <!-- Nav buttons (mobile only, desktop desktop shows all 3 in grid) -->
+        <button class="cv-carousel-btn cv-carousel-btn--prev" id="cvPrev" aria-label="Previous video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="cv-carousel-btn cv-carousel-btn--next" id="cvNext" aria-label="Next video">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="cv-carousel-dots" id="cvDots"></div>
+      </div><!-- /client-videos-carousel -->
 
       <!-- Masonry screenshot gallery -->
       <div class="msg-masonry reveal">

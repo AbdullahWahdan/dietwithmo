@@ -882,3 +882,156 @@ function calculateCaloriesDrawer() {
   }
 }
 
+
+// --- About Flashcards Carousel ------------------------------------------
+(function initAboutFlashcards() {
+  const track = document.getElementById('aboutFcTrack');
+  const prevBtn = document.getElementById('aboutFcPrev');
+  const nextBtn = document.getElementById('aboutFcNext');
+  const dotsWrap = document.getElementById('aboutFcDots');
+  if (!track) return;
+
+  const cards = track.querySelectorAll('.about-fc-card');
+  const total = cards.length;
+  let current = 0;
+  let touchStartX = 0;
+
+  // Build dots
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'about-fc-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'View card ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  }
+
+  function isRtl() { return document.documentElement.getAttribute('dir') === 'rtl'; }
+
+  function updateUI() {
+    const cardW = cards[0].offsetWidth;
+    const offset = current * cardW;
+    track.style.transform = "translateX(px)";
+    dotsWrap.querySelectorAll('.about-fc-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function goTo(index) {
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    current = index;
+    updateUI();
+  }
+
+  prevBtn && prevBtn.addEventListener('click', () => goTo(isRtl() ? current + 1 : current - 1));
+  nextBtn && nextBtn.addEventListener('click', () => goTo(isRtl() ? current - 1 : current + 1));
+
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+  });
+
+  window.addEventListener('resize', updateUI);
+})();
+
+// --- Client Videos Carousel (Auto-looping) --------------------------------
+window.cvPlayVideo = function(e, index) {
+  e.preventDefault(); e.stopPropagation();
+  const wrap = e.currentTarget.closest('.client-video-wrap');
+  const video = document.getElementById('cvVideo' + index);
+  if(!video) return;
+  wrap.classList.add('is-playing');
+  video.play();
+  video.setAttribute('controls', 'true');
+};
+
+(function initCvCarousel() {
+  const track = document.getElementById('cvTrack');
+  const prevBtn = document.getElementById('cvPrev');
+  const nextBtn = document.getElementById('cvNext');
+  const dotsWrap = document.getElementById('cvDots');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.cv-slide');
+  const total = slides.length;
+  let current = 0;
+  let touchStartX = 0;
+  let autoTimer;
+
+  function isRtl() { return document.documentElement.getAttribute('dir') === 'rtl'; }
+
+  // Build dots
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'View video ' + (i + 1));
+    dot.addEventListener('click', () => { resetAuto(); goTo(i); });
+    dotsWrap.appendChild(dot);
+  }
+
+  function updateUI() {
+    if(window.innerWidth > 860) {
+      track.style.transform = '';
+      return;
+    }
+    const slideW = slides[0].offsetWidth;
+    const offset = current * slideW;
+    track.style.transform = "translateX(px)";
+    dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    
+    // Pause videos when swiping away
+    slides.forEach((sld, i) => {
+      if(i !== current) {
+        const v = sld.querySelector('video');
+        if(v && !v.paused) v.pause();
+      }
+    });
+  }
+
+  function goTo(index) {
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    current = index;
+    updateUI();
+  }
+
+  prevBtn && prevBtn.addEventListener('click', () => { resetAuto(); goTo(isRtl() ? current + 1 : current - 1); });
+  nextBtn && nextBtn.addEventListener('click', () => { resetAuto(); goTo(isRtl() ? current - 1 : current + 1); });
+
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    if(window.innerWidth > 860) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { resetAuto(); goTo(current + (dx < 0 ? 1 : -1)); }
+  });
+
+  function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 5000); }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+  // Stop auto if a video is playing
+  slides.forEach(sld => {
+    const v = sld.querySelector('video');
+    if(v) {
+      v.addEventListener('play', () => clearInterval(autoTimer));
+      v.addEventListener('pause', startAuto);
+      v.addEventListener('ended', startAuto);
+    }
+  });
+
+  // Pause auto-loop on hover
+  const outer = document.querySelector('.client-videos-carousel');
+  if (outer) {
+    outer.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    outer.addEventListener('mouseleave', () => {
+      // only resume if no video is playing
+      const anyPlaying = Array.from(slides).some(s => {
+        const v = s.querySelector('video');
+        return v && !v.paused;
+      });
+      if(!anyPlaying) startAuto();
+    });
+  }
+
+  window.addEventListener('resize', updateUI);
+  startAuto();
+})();
+
