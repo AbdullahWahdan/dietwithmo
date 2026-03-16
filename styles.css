@@ -289,6 +289,39 @@
     gap: 10px;
 }
 
+/* ======== NAV MOBILE CTA BUTTON ======== */
+.nav-mobile-cta {
+    display: none;
+    background: var(--yellow);
+    color: var(--dark) !important;
+    padding: 7px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    font-family: 'Outfit', sans-serif;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+    line-height: 1.2;
+}
+
+.nav-mobile-cta:hover {
+    background: var(--yellow-bright);
+    transform: translateY(-2px);
+}
+
+.mobile-cta-link {
+    color: var(--yellow) !important;
+}
+
+@media (max-width: 768px) {
+    .nav-mobile-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 /* ======== LANG TOGGLE BUTTON (flag flags) ======== */
 .lang-toggle-btn {
     display: flex;
