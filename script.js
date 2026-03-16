@@ -975,7 +975,7 @@ window.cvPlayVideo = function(e, index) {
     }
     const slideW = slides[0].offsetWidth;
     const offset = current * slideW;
-    track.style.transform = "translateX(px)";
+    track.style.transform = `translateX(${isRtl() ? offset : -offset}px)`;
     dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
     
     // Pause videos when swiping away
@@ -1035,3 +1035,52 @@ window.cvPlayVideo = function(e, index) {
   startAuto();
 })();
 
+// ─── About Flashcards Swipeable Logic ──────────────────────────────────────
+(function initAboutFlashcards() {
+  const track = document.getElementById('aboutFcTrack');
+  const prevBtn = document.getElementById('aboutFcPrev');
+  const nextBtn = document.getElementById('aboutFcNext');
+  const dotsWrap = document.getElementById('aboutFcDots');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.about-fc-card');
+  const total = slides.length;
+  let current = 0;
+  let touchStartX = 0;
+
+  function isRtl() { return document.documentElement.getAttribute('dir') === 'rtl'; }
+
+  // Build dots
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'about-fc-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'View flashcard ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  }
+
+  function updateUI() {
+    const slideW = slides[0].offsetWidth;
+    const offset = current * slideW;
+    track.style.transform = `translateX(${isRtl() ? offset : -offset}px)`;
+    dotsWrap.querySelectorAll('.about-fc-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function goTo(index) {
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    current = index;
+    updateUI();
+  }
+
+  prevBtn && prevBtn.addEventListener('click', () => goTo(isRtl() ? current + 1 : current - 1));
+  nextBtn && nextBtn.addEventListener('click', () => goTo(isRtl() ? current - 1 : current + 1));
+
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { goTo(current + (dx < 0 ? 1 : -1)); }
+  });
+
+  window.addEventListener('resize', updateUI);
+})();
