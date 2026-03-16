@@ -244,7 +244,7 @@ window.addEventListener('scroll', () => {
   function updateUI() {
     // Measure the actual slide width + gap in pixels (works with flex gap)
     const slideW = slides[0].offsetWidth;
-    const gap = parseInt(getComputedStyle(track).gap) || 24;
+    const gapStyle = getComputedStyle(track).gap; const gap = (gapStyle && gapStyle !== 'normal') ? parseInt(gapStyle) || 0 : 0;
     // In RTL flex, items flow right→left so we need a positive offset to scroll forward
     const offset = current * (slideW + gap);
     track.style.transform = `translateX(${isRtl() ? offset : -offset}px)`;

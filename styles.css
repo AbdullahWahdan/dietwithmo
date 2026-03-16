@@ -1045,7 +1045,7 @@ a {
 .timeline {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 16px;
 }
 
 .timeline-item {
@@ -1622,7 +1622,7 @@ a {
     }
 
     .carousel-track {
-        gap: 0;
+        gap: 16px;
     }
 
     .carousel-img-wrap {
@@ -3256,7 +3256,7 @@ footer {
     padding: 36px 32px 32px;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 16px;
     transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
