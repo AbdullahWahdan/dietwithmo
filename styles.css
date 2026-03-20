@@ -360,6 +360,16 @@
     pointer-events: none;
 }
 
+@media (max-width: 768px) {
+    .flag-img {
+        width: 36px;
+    }
+    .lang-toggle-btn {
+        padding: 7px 14px;
+        gap: 8px;
+    }
+}
+
 .lang-flag.lang-flag--active {
     opacity: 1;
     filter: grayscale(0%);
@@ -548,6 +558,7 @@ a {
     font-size: 1.3rem;
     color: var(--white);
     line-height: 1.1;
+    white-space: nowrap;
 }
 
 .nav-logo-text span {
@@ -900,7 +911,7 @@ a {
    ======================================== */
 #about {
     padding: 110px 0;
-    background: var(--gray-light);
+    background: #c8d9a0;
 }
 
 .about-grid {
@@ -2094,6 +2105,10 @@ footer {
 
     .hero-inner {
         padding: 100px 0 60px;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 7vw, 2.8rem);
     }
 
     .story-img-wrap img {
