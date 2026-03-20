@@ -331,7 +331,7 @@
     background: rgba(205, 255, 0, 0.08);
     border: 1px solid rgba(205, 255, 0, 0.25);
     border-radius: 50px;
-    padding: 5px 12px;
+    padding: 7px 12px;
     cursor: pointer;
     transition: var(--transition);
     line-height: 1;
@@ -4127,20 +4127,41 @@ footer {
     z-index: 800;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 0;
     background: var(--yellow);
     color: var(--dark);
     font-family: 'Outfit', sans-serif;
     font-size: 0.88rem;
     font-weight: 800;
     letter-spacing: 0.03em;
-    padding: 11px 18px 11px 14px;
+    padding: 13px;
     border-radius: 50px;
     text-decoration: none;
     box-shadow: 0 6px 24px rgba(205, 255, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, padding 0.4s ease, gap 0.4s ease;
     animation: pkgPulse 3s ease-in-out infinite;
     white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Label hidden by default — expands while scrolling */
+.floating-pkg-btn .float-label {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-width 0.4s ease, opacity 0.3s ease;
+    display: inline-block;
+}
+
+.floating-pkg-btn.is-scrolling {
+    padding: 11px 18px 11px 14px;
+    gap: 8px;
+    animation: none;
+}
+
+.floating-pkg-btn.is-scrolling .float-label {
+    max-width: 120px;
+    opacity: 1;
 }
 
 .floating-pkg-btn:hover {
@@ -4182,21 +4203,41 @@ footer {
     z-index: 800;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 0;
     background: rgba(13, 26, 0, 0.92);
     border: 1.5px solid rgba(205, 255, 0, 0.35);
     color: var(--yellow);
     font-family: 'Outfit', sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
-    padding: 11px 16px 11px 12px;
+    padding: 13px;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 12px rgba(205, 255, 0, 0.15);
-    transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s, padding 0.4s ease, gap 0.4s ease;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Label hidden by default — expands while scrolling */
+.floating-calc-btn .float-label {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-width 0.4s ease, opacity 0.3s ease;
+    display: inline-block;
+}
+
+.floating-calc-btn.is-scrolling {
+    padding: 11px 16px 11px 12px;
+    gap: 8px;
+}
+
+.floating-calc-btn.is-scrolling .float-label {
+    max-width: 120px;
+    opacity: 1;
 }
 
 .floating-calc-btn:hover {

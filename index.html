@@ -1446,183 +1446,12 @@
   </div>
 
 
-  <!-- ======== CALORIE CALCULATOR ======== -->
-  <section id="calculator">
-    <div class="container">
 
-      <div class="calc-header reveal">
-        <div class="calc-label" data-en="Free Tool" data-ar="أداة مجانية">Free Tool</div>
-        <h2 class="section-title">
-          <span data-en="Calorie " data-ar="حاسبة "></span><span><span data-en="Calculator"
-              data-ar="السعرات الحرارية">Calculator</span></span>
-        </h2>
-        <p class="section-subtitle"
-          data-en="Find your daily calorie needs using the Mifflin-St Jeor equation — the most accurate formula used by nutrition experts."
-          data-ar="احسب احتياجك اليومي من السعرات الحرارية باستخدام معادلة ميفلين — أدق معادلة يستخدمها خبراء التغذية.">
-          Find your daily calorie needs using the Mifflin-St Jeor equation — the most accurate formula used by nutrition
-          experts.
-        </p>
-      </div>
 
-      <div class="calc-card reveal">
 
-        <!-- Inputs Grid -->
-        <div class="calc-form" id="calcForm">
 
-          <!-- Gender -->
-          <div class="calc-field calc-field--wide">
-            <label class="calc-label-text" data-en="Gender" data-ar="الجنس">Gender</label>
-            <div class="calc-gender-group">
-              <label class="calc-gender-btn" id="genderMaleLabel">
-                <input type="radio" name="gender" value="male" id="genderMale" checked />
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" width="20" height="20">
-                  <circle cx="10" cy="14" r="6" />
-                  <line x1="14.7" y1="9.3" x2="21" y2="3" />
-                  <line x1="16" y1="3" x2="21" y2="3" />
-                  <line x1="21" y1="3" x2="21" y2="8" />
-                </svg>
-                <span data-en="Male" data-ar="ذكر">Male</span>
-              </label>
-              <label class="calc-gender-btn" id="genderFemaleLabel">
-                <input type="radio" name="gender" value="female" id="genderFemale" />
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" width="20" height="20">
-                  <circle cx="12" cy="8" r="6" />
-                  <line x1="12" y1="14" x2="12" y2="21" />
-                  <line x1="9" y1="18" x2="15" y2="18" />
-                </svg>
-                <span data-en="Female" data-ar="أنثى">Female</span>
-              </label>
-            </div>
-          </div>
 
-          <!-- Age -->
-          <div class="calc-field">
-            <label class="calc-label-text" for="calcAge" data-en="Age (years)" data-ar="العمر (سنوات)">Age
-              (years)</label>
-            <input class="calc-input" type="number" id="calcAge" min="10" max="100" placeholder="25" />
-          </div>
 
-          <!-- Weight -->
-          <div class="calc-field">
-            <label class="calc-label-text" for="calcWeight" data-en="Weight (kg)" data-ar="الوزن (كيلوجرام)">Weight
-              (kg)</label>
-            <input class="calc-input" type="number" id="calcWeight" min="30" max="300" placeholder="75" />
-          </div>
-
-          <!-- Height -->
-          <div class="calc-field">
-            <label class="calc-label-text" for="calcHeight" data-en="Height (cm)" data-ar="الطول (سم)">Height
-              (cm)</label>
-            <input class="calc-input" type="number" id="calcHeight" min="100" max="250" placeholder="175" />
-          </div>
-
-          <!-- Activity Level -->
-          <div class="calc-field calc-field--wide">
-            <label class="calc-label-text" for="calcActivity" data-en="Activity Level" data-ar="مستوى النشاط">Activity
-              Level</label>
-            <select class="calc-select" id="calcActivity">
-              <option value="1.2" data-en="Sedentary (little or no exercise)" data-ar="قليل الحركة (لا رياضة تقريباً)">
-                Sedentary (little or no exercise)</option>
-              <option value="1.375" data-en="Lightly Active (exercise 1–3 days/week)"
-                data-ar="نشيط قليلاً (1–3 أيام/أسبوع)">Lightly Active (exercise 1–3 days/week)</option>
-              <option value="1.55" selected data-en="Moderately Active (exercise 3–5 days/week)"
-                data-ar="متوسط النشاط (3–5 أيام/أسبوع)">Moderately Active (exercise 3–5 days/week)</option>
-              <option value="1.725" data-en="Very Active (exercise 6–7 days/week)" data-ar="نشيط جداً (6–7 أيام/أسبوع)">
-                Very Active (exercise 6–7 days/week)</option>
-              <option value="1.9" data-en="Extra Active (hard exercise + physical job)"
-                data-ar="نشاط مكثف (تمرين شاق + عمل مجهد)">Extra Active (hard exercise + physical job)</option>
-            </select>
-          </div>
-
-          <!-- Goal -->
-          <div class="calc-field calc-field--wide">
-            <label class="calc-label-text" data-en="Nutrition Goal" data-ar="الهدف الغذائي">Nutrition Goal</label>
-            <div class="calc-goal-group">
-              <label class="calc-goal-btn" id="goalLoseLabel">
-                <input type="radio" name="goal" value="lose" id="goalLose" />
-                <span data-en="🔥 Lose Weight" data-ar="🔥 خسارة وزن">🔥 Lose Weight</span>
-              </label>
-              <label class="calc-goal-btn" id="goalMaintainLabel">
-                <input type="radio" name="goal" value="maintain" id="goalMaintain" checked />
-                <span data-en="⚖️ Maintain Weight" data-ar="⚖️ المحافظة على الوزن">⚖️ Maintain Weight</span>
-              </label>
-              <label class="calc-goal-btn" id="goalGainLabel">
-                <input type="radio" name="goal" value="gain" id="goalGain" />
-                <span data-en="💪 Gain Muscle" data-ar="💪 بناء عضلات">💪 Gain Muscle</span>
-              </label>
-            </div>
-          </div>
-
-          <!-- Calculate Button -->
-          <div class="calc-field calc-field--wide">
-            <button class="calc-btn" id="calcSubmit" onclick="calculateCalories()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" width="18" height="18">
-                <rect x="4" y="2" width="16" height="20" rx="2" />
-                <line x1="8" y1="6" x2="16" y2="6" />
-                <line x1="8" y1="10" x2="16" y2="10" />
-                <line x1="8" y1="14" x2="12" y2="14" />
-              </svg>
-              <span data-en="Calculate My Calories" data-ar="احسب سعراتي">Calculate My Calories</span>
-            </button>
-          </div>
-
-        </div>
-
-        <!-- Result Panel (hidden by default) -->
-        <div class="calc-result" id="calcResult" hidden>
-          <div class="calc-result-inner">
-            <div class="calc-result-header">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" width="28" height="28">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-              </svg>
-              <span data-en="Your Results" data-ar="نتائجك">Your Results</span>
-            </div>
-            <div class="calc-result-cards">
-              <div class="calc-result-card calc-result-card--bmr">
-                <div class="calc-result-card-label" data-en="BMR (Base Metabolic Rate)" data-ar="معدل الأيض الأساسي">BMR
-                  (Base Metabolic Rate)</div>
-                <div class="calc-result-card-value"><span id="calcBmrVal">—</span> <span
-                    class="calc-result-unit">kcal/day</span></div>
-                <div class="calc-result-card-note" data-en="Calories your body burns at complete rest"
-                  data-ar="السعرات التي يحرقها جسمك في حالة الراحة التامة">Calories your body burns at complete rest
-                </div>
-              </div>
-              <div class="calc-result-card calc-result-card--tdee">
-                <div class="calc-result-card-label" data-en="TDEE (Total Daily Energy)" data-ar="إجمالي الطاقة اليومية">
-                  TDEE (Total Daily Energy)</div>
-                <div class="calc-result-card-value"><span id="calcTdeeVal">—</span> <span
-                    class="calc-result-unit">kcal/day</span></div>
-                <div class="calc-result-card-note" data-en="Calories you burn per day with your activity level"
-                  data-ar="السعرات التي تحرقها يومياً بمستوى نشاطك الحالي">Calories you burn per day with your activity
-                  level</div>
-              </div>
-              <div class="calc-result-card calc-result-card--goal">
-                <div class="calc-result-card-label" id="calcGoalLabel" data-en="Your Daily Calorie Target"
-                  data-ar="هدفك اليومي من السعرات">Your Daily Calorie Target</div>
-                <div class="calc-result-card-value calc-result-card-value--main"><span id="calcGoalVal">—</span> <span
-                    class="calc-result-unit">kcal/day</span></div>
-                <div class="calc-result-card-note" id="calcGoalNote" data-en="Recommended intake to reach your goal"
-                  data-ar="الكمية الموصى بها لتحقيق هدفك">Recommended intake to reach your goal</div>
-              </div>
-            </div>
-            <div class="calc-disclaimer"
-              data-en="💡 These are estimates based on the Mifflin-St Jeor equation. For a personalized plan tailored to your body and lifestyle, book a session with Dr. Mohamed Khaled."
-              data-ar="💡 هذه تقديرات مبنية على معادلة ميفلين. للحصول على خطة مخصصة لجسمك وأسلوب حياتك، احجز جلسة مع د/ محمد خالد.">
-              💡 These are estimates based on the Mifflin-St Jeor equation. For a personalized plan tailored to your
-              body and lifestyle, book a session with Dr. Mohamed Khaled.
-            </div>
-            <a href="#contact" class="calc-book-btn" data-en="Book a Session with Dr. Mo"
-              data-ar="احجز جلسة مع د/ محمد">Book a Session with Dr. Mo</a>
-          </div>
-        </div>
-
-      </div><!-- /calc-card -->
-
-    </div>
   </section>
 
   <!-- ======== PACKAGES ======== -->
@@ -2058,7 +1887,7 @@
       <rect x="1" y="3" width="22" height="5" />
       <line x1="10" y1="12" x2="14" y2="12" />
     </svg>
-    <span data-en="Packages" data-ar="الباقات">Packages</span>
+    <span class="float-label" data-en="Packages" data-ar="الباقات">Packages</span>
   </a>
 
   <!-- ======== FLOATING CALCULATOR BUTTON ======== -->
@@ -2070,7 +1899,7 @@
       <line x1="8" y1="10" x2="16" y2="10" />
       <line x1="8" y1="14" x2="12" y2="14" />
     </svg>
-    <span class="floating-calc-label" data-en="Calculator" data-ar="حاسبة">Calculator</span>
+    <span class="float-label" data-en="Calculator" data-ar="حاسبة">Calculator</span>
   </button>
 
   <!-- ======== CALCULATOR DRAWER ======== -->

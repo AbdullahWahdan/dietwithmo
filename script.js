@@ -1084,3 +1084,27 @@ window.cvPlayVideo = function(e, index) {
 
   window.addEventListener('resize', updateUI);
 })();
+
+// ─── Floating buttons: expand with label while scrolling, icon-only at rest ───
+(function initFloatingScrollExpand() {
+  const pkgBtn = document.getElementById('floatingPkgBtn');
+  const calcBtn = document.getElementById('floatingCalcBtn');
+  if (!pkgBtn && !calcBtn) return;
+
+  let scrollTimer = null;
+
+  function onScroll() {
+    // Add class immediately on scroll
+    pkgBtn && pkgBtn.classList.add('is-scrolling');
+    calcBtn && calcBtn.classList.add('is-scrolling');
+
+    // Clear and reset the timeout — collapses 800ms after last scroll event
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      pkgBtn && pkgBtn.classList.remove('is-scrolling');
+      calcBtn && calcBtn.classList.remove('is-scrolling');
+    }, 800);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
