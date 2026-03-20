@@ -287,6 +287,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
 }
 
 /* ======== NAV MOBILE CTA BUTTON ======== */
@@ -363,10 +364,6 @@
 @media (max-width: 768px) {
     .flag-img {
         width: 36px;
-    }
-    .lang-toggle-btn {
-        padding: 7px 14px;
-        gap: 8px;
     }
 }
 
@@ -542,6 +539,8 @@ a {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
+    min-width: 0;
 }
 
 .nav-logo img {
@@ -634,13 +633,14 @@ a {
     gap: 5px;
     cursor: pointer;
     padding: 6px;
+    flex-shrink: 0;
 }
 
 .hamburger span {
     display: block;
-    width: 26px;
-    height: 3px;
-    background: var(--white);
+    width: 22px;
+    height: 2.5px;
+    background: var(--yellow);
     border-radius: 3px;
     transition: var(--transition);
 }
@@ -2101,6 +2101,26 @@ footer {
 
     .hamburger {
         display: flex;
+    }
+
+    /* Shrink logo on mobile so it coexists with flags + hamburger */
+    .nav-logo img {
+        height: 36px;
+        width: 36px;
+    }
+
+    .nav-logo-text {
+        font-size: 1.05rem;
+    }
+
+    .nav-logo {
+        gap: 8px;
+    }
+
+    /* Tighten flag button on mobile */
+    .lang-toggle-btn {
+        padding: 5px 10px;
+        gap: 6px;
     }
 
     .hero-inner {
