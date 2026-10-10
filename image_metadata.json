@@ -1,0 +1,592 @@
+{
+  "totalOrigSize": 6882757,
+  "totalWebpSize": 4766058,
+  "overallSavings": "30.8",
+  "results": [
+    {
+      "relativePath": "431249367_824868302991522_2055455087122326823_n.jpg",
+      "relWebpPath": "431249367_824868302991522_2055455087122326823_n.webp",
+      "width": 960,
+      "height": 960,
+      "origSize": 47271,
+      "webpSize": 28244,
+      "savedPercent": "40.3%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Ahmed Abdelnaby.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Ahmed Abdelnaby.webp",
+      "width": 1080,
+      "height": 1228,
+      "origSize": 100173,
+      "webpSize": 60172,
+      "savedPercent": "39.9%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Amr Elgazzar.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Amr Elgazzar.webp",
+      "width": 1080,
+      "height": 1212,
+      "origSize": 171315,
+      "webpSize": 130742,
+      "savedPercent": "23.7%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Amr Hossam.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Amr Hossam.webp",
+      "width": 1080,
+      "height": 1320,
+      "origSize": 115701,
+      "webpSize": 72138,
+      "savedPercent": "37.7%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Charles Ekpenyong.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Charles Ekpenyong.webp",
+      "width": 1080,
+      "height": 1080,
+      "origSize": 97515,
+      "webpSize": 66512,
+      "savedPercent": "31.8%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Gabriel Orok.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Gabriel Orok.webp",
+      "width": 1080,
+      "height": 1258,
+      "origSize": 111521,
+      "webpSize": 63830,
+      "savedPercent": "42.8%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Horsemanship/Talaat Ehab.jpeg",
+      "relWebpPath": "images/hall_of_fame/Horsemanship/Talaat Ehab.webp",
+      "width": 939,
+      "height": 559,
+      "origSize": 76152,
+      "webpSize": 53232,
+      "savedPercent": "30.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Abdallah Haitham - basketball.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Abdallah Haitham - basketball.webp",
+      "width": 1073,
+      "height": 1338,
+      "origSize": 203511,
+      "webpSize": 164558,
+      "savedPercent": "19.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Abdellatif Mostafa- tennis.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Abdellatif Mostafa- tennis.webp",
+      "width": 1080,
+      "height": 1350,
+      "origSize": 95998,
+      "webpSize": 83884,
+      "savedPercent": "12.6%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Abdelrahman Yasser - Tennis.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Abdelrahman Yasser - Tennis.webp",
+      "width": 1440,
+      "height": 1920,
+      "origSize": 153512,
+      "webpSize": 99482,
+      "savedPercent": "35.2%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Aly Roushdy - judo.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Aly Roushdy - judo.webp",
+      "width": 1077,
+      "height": 1260,
+      "origSize": 80011,
+      "webpSize": 42868,
+      "savedPercent": "46.4%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Gennyar Hussein - tennis.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Gennyar Hussein - tennis.webp",
+      "width": 1440,
+      "height": 1920,
+      "origSize": 149561,
+      "webpSize": 95566,
+      "savedPercent": "36.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Ibrahim Ramy - tennis.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Ibrahim Ramy - tennis.webp",
+      "width": 2020,
+      "height": 2048,
+      "origSize": 175577,
+      "webpSize": 64388,
+      "savedPercent": "63.3%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Kenzy Ayman - Squash.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Kenzy Ayman - Squash.webp",
+      "width": 1078,
+      "height": 1349,
+      "origSize": 61079,
+      "webpSize": 32854,
+      "savedPercent": "46.2%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Khaled Waleed - Taekondo.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Khaled Waleed - Taekondo.webp",
+      "width": 1077,
+      "height": 705,
+      "origSize": 120585,
+      "webpSize": 92548,
+      "savedPercent": "23.3%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Mariam Yasser - Tennis.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Mariam Yasser - Tennis.webp",
+      "width": 1079,
+      "height": 1230,
+      "origSize": 265281,
+      "webpSize": 248190,
+      "savedPercent": "6.4%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Mohamed Alfy - Swimming.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Mohamed Alfy - Swimming.webp",
+      "width": 1080,
+      "height": 956,
+      "origSize": 91174,
+      "webpSize": 61318,
+      "savedPercent": "32.7%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Nour Yazid - tennis.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Nour Yazid - tennis.webp",
+      "width": 688,
+      "height": 1280,
+      "origSize": 103732,
+      "webpSize": 70204,
+      "savedPercent": "32.3%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Omar Ahmed - judo.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Omar Ahmed - judo.webp",
+      "width": 597,
+      "height": 1280,
+      "origSize": 62702,
+      "webpSize": 48428,
+      "savedPercent": "22.8%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Omar Medhat - Padel.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Omar Medhat - Padel.webp",
+      "width": 1080,
+      "height": 769,
+      "origSize": 57505,
+      "webpSize": 31558,
+      "savedPercent": "45.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Raul Bazergy - tennis.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Raul Bazergy - tennis.webp",
+      "width": 828,
+      "height": 1158,
+      "origSize": 139388,
+      "webpSize": 96998,
+      "savedPercent": "30.4%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Sara AlSaleh - Badminton.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Sara AlSaleh - Badminton.webp",
+      "width": 1078,
+      "height": 704,
+      "origSize": 74509,
+      "webpSize": 45888,
+      "savedPercent": "38.4%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Sara Eldessouky - tennis.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Sara Eldessouky - tennis.webp",
+      "width": 1170,
+      "height": 1353,
+      "origSize": 200291,
+      "webpSize": 205460,
+      "savedPercent": "-2.6%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Yassin Sanad - tennis.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Yassin Sanad - tennis.webp",
+      "width": 1200,
+      "height": 1599,
+      "origSize": 187205,
+      "webpSize": 125132,
+      "savedPercent": "33.2%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/newPhotos/Yehia Walid - Karate.jpeg",
+      "relWebpPath": "images/hall_of_fame/newPhotos/Yehia Walid - Karate.webp",
+      "width": 1200,
+      "height": 1600,
+      "origSize": 255004,
+      "webpSize": 158374,
+      "savedPercent": "37.9%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Shooting/Yassin Ehab.jpeg",
+      "relWebpPath": "images/hall_of_fame/Shooting/Yassin Ehab.webp",
+      "width": 847,
+      "height": 568,
+      "origSize": 31176,
+      "webpSize": 17618,
+      "savedPercent": "43.5%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Taekondo/Taekondo-Jana Khattab.jpeg",
+      "relWebpPath": "images/hall_of_fame/Taekondo/Taekondo-Jana Khattab.webp",
+      "width": 1078,
+      "height": 1346,
+      "origSize": 100474,
+      "webpSize": 59830,
+      "savedPercent": "40.5%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Eyad Ezzat.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Eyad Ezzat.webp",
+      "width": 960,
+      "height": 1280,
+      "origSize": 149118,
+      "webpSize": 175368,
+      "savedPercent": "-17.6%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Hassan Shoaib.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Hassan Shoaib.webp",
+      "width": 720,
+      "height": 1280,
+      "origSize": 94618,
+      "webpSize": 67570,
+      "savedPercent": "28.6%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Joody ElKady.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Joody ElKady.webp",
+      "width": 720,
+      "height": 960,
+      "origSize": 86069,
+      "webpSize": 108470,
+      "savedPercent": "-26.0%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Lamis ElHussainy.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Lamis ElHussainy.webp",
+      "width": 1080,
+      "height": 1144,
+      "origSize": 146681,
+      "webpSize": 108698,
+      "savedPercent": "25.9%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Marwan Ehab.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Marwan Ehab.webp",
+      "width": 1200,
+      "height": 1600,
+      "origSize": 376835,
+      "webpSize": 301918,
+      "savedPercent": "19.9%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Merna Refaat.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Merna Refaat.webp",
+      "width": 1080,
+      "height": 1312,
+      "origSize": 101345,
+      "webpSize": 54392,
+      "savedPercent": "46.3%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Mohamed Gendy.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Mohamed Gendy.webp",
+      "width": 984,
+      "height": 1034,
+      "origSize": 95962,
+      "webpSize": 59992,
+      "savedPercent": "37.5%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Seif Sameh.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Seif Sameh.webp",
+      "width": 960,
+      "height": 1280,
+      "origSize": 238698,
+      "webpSize": 179164,
+      "savedPercent": "24.9%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Yassin Abdelaziz.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Yassin Abdelaziz.webp",
+      "width": 1200,
+      "height": 1600,
+      "origSize": 333669,
+      "webpSize": 243748,
+      "savedPercent": "26.9%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Tennis/Tennis-Youssef Mourid.jpeg",
+      "relWebpPath": "images/hall_of_fame/Tennis/Tennis-Youssef Mourid.webp",
+      "width": 1075,
+      "height": 1424,
+      "origSize": 153515,
+      "webpSize": 101508,
+      "savedPercent": "33.9%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.50 AM (1).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.50 AM (1).webp",
+      "width": 737,
+      "height": 582,
+      "origSize": 55386,
+      "webpSize": 41598,
+      "savedPercent": "24.9%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.50 AM (2).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.50 AM (2).webp",
+      "width": 723,
+      "height": 587,
+      "origSize": 52696,
+      "webpSize": 39928,
+      "savedPercent": "24.2%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.50 AM.jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.50 AM.webp",
+      "width": 896,
+      "height": 377,
+      "origSize": 23882,
+      "webpSize": 14688,
+      "savedPercent": "38.5%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (1).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (1).webp",
+      "width": 681,
+      "height": 522,
+      "origSize": 44052,
+      "webpSize": 29340,
+      "savedPercent": "33.4%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (2).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (2).webp",
+      "width": 602,
+      "height": 628,
+      "origSize": 45214,
+      "webpSize": 28952,
+      "savedPercent": "36.0%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (3).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (3).webp",
+      "width": 547,
+      "height": 285,
+      "origSize": 14523,
+      "webpSize": 8930,
+      "savedPercent": "38.5%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (4).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (4).webp",
+      "width": 746,
+      "height": 533,
+      "origSize": 35510,
+      "webpSize": 21472,
+      "savedPercent": "39.5%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (5).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (5).webp",
+      "width": 747,
+      "height": 461,
+      "origSize": 41855,
+      "webpSize": 29384,
+      "savedPercent": "29.8%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (6).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (6).webp",
+      "width": 668,
+      "height": 572,
+      "origSize": 52137,
+      "webpSize": 37022,
+      "savedPercent": "29.0%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (7).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM (7).webp",
+      "width": 800,
+      "height": 310,
+      "origSize": 18169,
+      "webpSize": 10446,
+      "savedPercent": "42.5%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM.jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.51 AM.webp",
+      "width": 576,
+      "height": 375,
+      "origSize": 12946,
+      "webpSize": 6598,
+      "savedPercent": "49.0%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.52 AM (1).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.52 AM (1).webp",
+      "width": 690,
+      "height": 285,
+      "origSize": 17604,
+      "webpSize": 10266,
+      "savedPercent": "41.7%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.52 AM (2).jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.52 AM (2).webp",
+      "width": 628,
+      "height": 245,
+      "origSize": 11166,
+      "webpSize": 6340,
+      "savedPercent": "43.2%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.52 AM.jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.14.52 AM.webp",
+      "width": 1599,
+      "height": 520,
+      "origSize": 45982,
+      "webpSize": 19368,
+      "savedPercent": "57.9%"
+    },
+    {
+      "relativePath": "images/messeges/WhatsApp Image 2026-02-24 at 3.47.29 AM.jpeg",
+      "relWebpPath": "images/messeges/WhatsApp Image 2026-02-24 at 3.47.29 AM.webp",
+      "width": 1080,
+      "height": 1159,
+      "origSize": 109274,
+      "webpSize": 72806,
+      "savedPercent": "33.4%"
+    },
+    {
+      "relativePath": "images/success/0.jpeg",
+      "relWebpPath": "images/success/0.webp",
+      "width": 886,
+      "height": 886,
+      "origSize": 125360,
+      "webpSize": 63584,
+      "savedPercent": "49.3%"
+    },
+    {
+      "relativePath": "images/success/1.jpeg",
+      "relWebpPath": "images/success/1.webp",
+      "width": 1078,
+      "height": 1082,
+      "origSize": 121093,
+      "webpSize": 81746,
+      "savedPercent": "32.5%"
+    },
+    {
+      "relativePath": "images/success/2.jpeg",
+      "relWebpPath": "images/success/2.webp",
+      "width": 886,
+      "height": 886,
+      "origSize": 119457,
+      "webpSize": 57328,
+      "savedPercent": "52.0%"
+    },
+    {
+      "relativePath": "images/success/3.jpeg",
+      "relWebpPath": "images/success/3.webp",
+      "width": 886,
+      "height": 886,
+      "origSize": 109338,
+      "webpSize": 51498,
+      "savedPercent": "52.9%"
+    },
+    {
+      "relativePath": "images/success/4.jpeg",
+      "relWebpPath": "images/success/4.webp",
+      "width": 886,
+      "height": 886,
+      "origSize": 111315,
+      "webpSize": 54256,
+      "savedPercent": "51.3%"
+    },
+    {
+      "relativePath": "images/success/5.jpeg",
+      "relWebpPath": "images/success/5.webp",
+      "width": 886,
+      "height": 886,
+      "origSize": 133590,
+      "webpSize": 70158,
+      "savedPercent": "47.5%"
+    },
+    {
+      "relativePath": "images/success/6.jpeg",
+      "relWebpPath": "images/success/6.webp",
+      "width": 886,
+      "height": 886,
+      "origSize": 142523,
+      "webpSize": 80234,
+      "savedPercent": "43.7%"
+    },
+    {
+      "relativePath": "images/success/7.jpeg",
+      "relWebpPath": "images/success/7.webp",
+      "width": 886,
+      "height": 886,
+      "origSize": 114517,
+      "webpSize": 56558,
+      "savedPercent": "50.6%"
+    },
+    {
+      "relativePath": "images/tv_shows/WhatsApp Image 2026-02-24 at 3.45.3 AM.jpeg",
+      "relWebpPath": "images/tv_shows/WhatsApp Image 2026-02-24 at 3.45.3 AM.webp",
+      "width": 870,
+      "height": 510,
+      "origSize": 49215,
+      "webpSize": 30570,
+      "savedPercent": "37.9%"
+    },
+    {
+      "relativePath": "images/tv_shows/WhatsApp Image 2026-02-24 at 3.45.39 AM.jpeg",
+      "relWebpPath": "images/tv_shows/WhatsApp Image 2026-02-24 at 3.45.39 AM.webp",
+      "width": 870,
+      "height": 704,
+      "origSize": 74428,
+      "webpSize": 48428,
+      "savedPercent": "34.9%"
+    },
+    {
+      "relativePath": "images/Videos/thumbs/abdullah.jpg",
+      "relWebpPath": "images/Videos/thumbs/abdullah.webp",
+      "width": 720,
+      "height": 1280,
+      "origSize": 38912,
+      "webpSize": 28982,
+      "savedPercent": "25.5%"
+    },
+    {
+      "relativePath": "images/Videos/thumbs/andrew.jpg",
+      "relWebpPath": "images/Videos/thumbs/andrew.webp",
+      "width": 480,
+      "height": 848,
+      "origSize": 20288,
+      "webpSize": 13716,
+      "savedPercent": "32.4%"
+    },
+    {
+      "relativePath": "images/Videos/thumbs/hassan.jpg",
+      "relWebpPath": "images/Videos/thumbs/hassan.webp",
+      "width": 480,
+      "height": 848,
+      "origSize": 37892,
+      "webpSize": 31018,
+      "savedPercent": "18.1%"
+    }
+  ]
+}
