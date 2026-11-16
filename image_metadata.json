@@ -1,7 +1,7 @@
 {
-  "totalOrigSize": 6882757,
-  "totalWebpSize": 4766058,
-  "overallSavings": "30.8",
+  "totalOrigSize": 11873574,
+  "totalWebpSize": 6844218,
+  "overallSavings": "42.4",
   "results": [
     {
       "relativePath": "431249367_824868302991522_2055455087122326823_n.jpg",
@@ -587,6 +587,159 @@
       "origSize": 37892,
       "webpSize": 31018,
       "savedPercent": "18.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Abdo ElKomy.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Abdo ElKomy.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 382200,
+      "webpSize": 178180,
+      "savedPercent": "53.4%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Adam El Kazaz.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Adam El Kazaz.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 328898,
+      "webpSize": 143846,
+      "savedPercent": "56.3%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Adham Nabil.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Adham Nabil.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 241266,
+      "webpSize": 89064,
+      "savedPercent": "63.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Ahmed El Feky.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Ahmed El Feky.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 281329,
+      "webpSize": 115122,
+      "savedPercent": "59.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Ahmed Safwat.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Ahmed Safwat.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 292849,
+      "webpSize": 123316,
+      "savedPercent": "57.9%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Ali Hassan.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Ali Hassan.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 366200,
+      "webpSize": 171616,
+      "savedPercent": "53.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Maata Magasa.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Maata Magasa.webp",
+      "width": 1120,
+      "height": 1400,
+      "origSize": 275990,
+      "webpSize": 110202,
+      "savedPercent": "60.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Mahmoud Sultan.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Mahmoud Sultan.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 342344,
+      "webpSize": 153404,
+      "savedPercent": "55.2%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Marwan Khaled.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Marwan Khaled.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 232838,
+      "webpSize": 87500,
+      "savedPercent": "62.4%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Moussa Mohamed.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Moussa Mohamed.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 327800,
+      "webpSize": 144626,
+      "savedPercent": "55.9%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Omar Adelfattah.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Omar Adelfattah.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 283254,
+      "webpSize": 112102,
+      "savedPercent": "60.4%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Pier Sameh.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Pier Sameh.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 284112,
+      "webpSize": 121238,
+      "savedPercent": "57.3%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Yassin Moussa.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Yassin Moussa.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 278555,
+      "webpSize": 111806,
+      "savedPercent": "59.9%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Youssef Abdeltawab.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Youssef Abdeltawab.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 350816,
+      "webpSize": 152718,
+      "savedPercent": "56.5%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Youssef El Tabakh.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Youssef El Tabakh.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 235787,
+      "webpSize": 89080,
+      "savedPercent": "62.2%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Youssef Shika.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Youssef Shika.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 241147,
+      "webpSize": 86482,
+      "savedPercent": "64.1%"
+    },
+    {
+      "relativePath": "images/hall_of_fame/Football/Zain Balbaa.jpeg",
+      "relWebpPath": "images/hall_of_fame/Football/Zain Balbaa.webp",
+      "width": 1122,
+      "height": 1402,
+      "origSize": 245432,
+      "webpSize": 87858,
+      "savedPercent": "64.2%"
     }
   ]
 }
